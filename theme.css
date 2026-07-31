@@ -171,3 +171,11 @@
   .story-hero h1{font-size:23px;color:#fff;margin:2px 0 0}
   .story-hero .en{font-size:12.5px;color:var(--muted);letter-spacing:.06em;margin-top:3px}
   .story-hero .st-emoji{display:flex;flex-direction:column;gap:4px}
+
+
+/* 角色页内 日记 / 日常 切换菜单 */
+.tabs{display:flex;gap:12px;justify-content:center;margin:26px 0 4px}
+.tab-btn{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:8px 26px;border-radius:999px;font-size:14px;letter-spacing:.12em;transition:.2s}
+.tab-btn:hover{color:var(--accent);border-color:var(--accent)}
+.tab-btn.active{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#06121f;border-color:transparent;font-weight:700}
+.tab-panel[hidden]{display:none}
