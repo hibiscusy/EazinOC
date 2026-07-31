@@ -114,6 +114,8 @@
   .card:hover{border-color:rgba(127,180,232,.5)}
   .c-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
   .c-stage{font-size:11px;letter-spacing:.14em;color:var(--accent2);border:1px solid var(--line);padding:2px 9px;border-radius:999px;font-weight:600;white-space:nowrap}
+  a.c-stage{text-decoration:none;color:var(--accent2);transition:.2s}
+  a.c-stage:hover{background:rgba(127,180,232,.12);border-color:var(--accent)}
   .c-title{font-size:17px;font-weight:700;color:#fff;letter-spacing:.01em}
   .c-date{font-size:11.5px;color:var(--muted);margin-left:auto;white-space:nowrap}
   .c-body{font-size:14.5px;color:var(--soft);line-height:1.95;margin-top:10px}
