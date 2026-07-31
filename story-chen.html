@@ -22,6 +22,11 @@
 <section class="line" id="line-chen">
     <div class="line-head"><span class="em">🗡️</span><h2>谶 · 液态金属剑灵</h2><div class="sub2">红发剑灵<br>认妈认爸的小崽</div></div>
     <p class="line-desc">一把本就"活着"的魔剑，被触发显现为人形。他拜度漪为师学"当大侠"，苏醒后认铃兰为"妈妈"、赛博恩为"爸爸"，是宇宙里最萌也最厉害的存在。</p>
+<div class="tabs" id="chen-tabs">
+  <button type="button" class="tab-btn active" data-tab="birth">谶的诞生</button>
+  <button type="button" class="tab-btn" data-tab="daily">日常</button>
+</div>
+    <div class="tab-panel" id="tab-birth">
     <div class="tl">
 
       <div class="node">
@@ -103,7 +108,44 @@
 
       
 
+    </div>    </div>
+    <div class="tab-panel" id="tab-daily" hidden>
+    <div class="tl">
+      <div class="node">
+        <div class="card">
+          <div class="c-head"><span class="c-stage">日常</span><span class="c-title">"你能治好掉头发吗"</span><span class="c-date">发布 2026.04.30</span></div>
+          <div class="c-body">
+            <p>谶："铃兰郎中，你能治好掉头发吗？" 铃兰："你掉头发了？" 谶："没有。但我认识一个半兽人。" 铃兰："哦，他不需要治疗，他需要化毛膏。" 谶点头记下。</p>
+          </div>
+          <div class="c-tags">#蒲熠星银河系旅行攻略#</div>
+          <div class="c-src">原文：<a href="https://www.sina.cn/media/2882733894" target="_blank" rel="noopener">@蒲熠星 微博</a></div>
+        </div>
+      </div>
+
+      <div class="node">
+        <div class="card">
+          <div class="c-head"><span class="c-stage">日常</span><span class="c-title">"你最近为什么总跟着我"</span><span class="c-date">发布 2026.05.01</span></div>
+          <div class="c-body">
+            <p>铃兰："你最近为什么总跟着我？" 谶："因为你有趣。" 铃兰："有趣？" 谶："你嘴上说不喜欢所有人，但给斯沃德·麦伦的药都是甜的。" 铃兰："那是因为他吃苦的会吐，浪费。" 谶："你给他加糖的时候还笑了。" 铃兰："……你看错了。"</p>
+          </div>
+          <div class="c-tags">#蒲熠星演唱会# 🗡️💊 #蒲熠星银河系旅行攻略#</div>
+          <div class="c-src">原文：<a href="https://www.sina.cn/media/2882733894" target="_blank" rel="noopener">@蒲熠星 微博</a></div>
+        </div>
+      </div>
+
+      <div class="node">
+        <div class="card">
+          <div class="c-head"><span class="c-stage">日常</span><span class="c-title">《走进古地球》与警报</span><span class="c-date">发布 2026.06.23</span></div>
+          <div class="c-body">
+            <p>"师父，为什么会有《走进古地球》这样的节目？我想看电视剧。""阿谶，偶尔看看科普节目也挺好，你需要学习。""电视剧？本王也喜欢电视剧！……欸？怎么会有警报？这是什么！""赛博恩，这不会是你干的吧……"</p>
+          </div>
+          <div class="c-tags">#蒲熠星银河系旅行攻略#</div>
+          <div class="c-src">原文：<a href="https://www.sina.cn/media/2882733894" target="_blank" rel="noopener">@蒲熠星 微博</a></div>
+        </div>
+      </div>
     </div>
+    </div>
+
   </section>
   <footer>
     <div class="tip">✦ 故事仍在连载 ✦</div>
@@ -111,5 +153,20 @@
     <p style="margin-top:10px;color:var(--muted);font-size:11.5px">返回：<a href="OC宇宙-人物时间线-蒲熠星.html">角色宇宙主页</a></p>
   </footer>
 </div>
+<script>
+(function(){
+  document.querySelectorAll('.tabs').forEach(function(tabs){
+    tabs.addEventListener('click',function(e){
+      var b=e.target.closest('.tab-btn'); if(!b)return;
+      var t=b.getAttribute('data-tab');
+      tabs.querySelectorAll('.tab-btn').forEach(function(x){x.classList.toggle('active',x===b)});
+      var parent=tabs.parentElement;
+      parent.querySelectorAll(':scope > .tab-panel').forEach(function(p){
+        p.hidden=(p.id!=='tab-'+t);
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
