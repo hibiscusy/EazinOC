@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>度漪日记 · 蒲熠星 | 银河系旅行攻略</title>
+<style>
+  :root{
+    --bg:#0a0e1a;
+    --bg2:#131a2e;
+    --panel:rgba(22,28,48,0.72);
+    --panel2:rgba(30,38,64,0.55);
+    --line:rgba(117,170,220,0.22);
+    --text:#e8edf7;
+    --soft:#a9b6cf;
+    --muted:#6b7794;
+    --accent:#7fb4e8;
+    --accent2:#c9a86a;
+    --glow:#5ea3ff;
+    --red:#e07a7a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased}
+  body{
+    background:
+      radial-gradient(1200px 700px at 80% -10%, rgba(94,163,255,0.12), transparent 60%),
+      radial-gradient(900px 600px at 10% 20%, rgba(201,168,106,0.08), transparent 55%),
+      radial-gradient(800px 800px at 50% 110%, rgba(94,163,255,0.10), transparent 60%),
+      linear-gradient(180deg,#070b16 0%, #0a0e1a 40%, #0c1020 100%);
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+  /* 星空 */
+  .stars,.stars2{position:fixed;inset:0;pointer-events:none;z-index:0}
+  .stars{background-image:
+    radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+    radial-gradient(1px 1px at 120px 80px, rgba(255,255,255,.8), transparent),
+    radial-gradient(1.5px 1.5px at 200px 150px, #cfe3ff, transparent),
+    radial-gradient(1px 1px at 320px 220px, #fff, transparent),
+    radial-gradient(1px 1px at 420px 60px, rgba(255,255,255,.7), transparent),
+    radial-gradient(1.5px 1.5px at 520px 300px, #ffe9c2, transparent),
+    radial-gradient(1px 1px at 640px 120px, #fff, transparent),
+    radial-gradient(1px 1px at 740px 260px, rgba(255,255,255,.6), transparent),
+    radial-gradient(1px 1px at 860px 80px, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 960px 200px, #cfe3ff, transparent);
+    background-size:1000px 400px;background-repeat:repeat;animation:drift 120s linear infinite;opacity:.6}
+  .stars2{background-image:
+    radial-gradient(1px 1px at 50px 100px, rgba(255,255,255,.9), transparent),
+    radial-gradient(2px 2px at 300px 50px, rgba(207,227,255,.9), transparent),
+    radial-gradient(1px 1px at 500px 250px, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 700px 180px, rgba(255,233,194,.8), transparent),
+    radial-gradient(1px 1px at 900px 320px, #fff, transparent);
+    background-size:1000px 400px;background-repeat:repeat;animation:twinkle 4s ease-in-out infinite alternate;opacity:.7}
+  @keyframes drift{from{background-position:0 0}to{background-position:1000px 400px}}
+  @keyframes twinkle{0%{opacity:.3}100%{opacity:.9}}
+
+  .wrap{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:0 22px}
+
+  /* 头部 */
+  header.hero{padding:90px 0 40px;text-align:center}
+  .badge{display:inline-block;font-size:12px;letter-spacing:.3em;color:var(--accent);border:1px solid var(--line);padding:6px 16px;border-radius:999px;background:rgba(94,163,255,.06);backdrop-filter:blur(6px)}
+  h1.title{font-size:clamp(48px,8vw,86px);font-weight:800;letter-spacing:.08em;margin:22px 0 6px;
+    background:linear-gradient(135deg,#fff 0%, #bfe0ff 40%, #7fb4e8 70%, #c9a86a 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    text-shadow:0 0 60px rgba(94,163,255,.25)}
+  .sub{color:var(--soft);font-size:15px;letter-spacing:.18em}
+  .author{margin-top:18px;color:var(--accent2);font-size:14px;letter-spacing:.12em}
+  .author b{color:var(--text);font-weight:600}
+  .meta-line{margin-top:14px;color:var(--muted);font-size:12.5px}
+
+  /* 背景卡 */
+  .intro{margin:46px 0 10px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px 32px;backdrop-filter:blur(10px);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  .intro h2{font-size:13px;letter-spacing:.25em;color:var(--accent);margin-bottom:14px;font-weight:600}
+  .intro p{color:var(--soft);font-size:15px;margin-bottom:12px}
+  .intro p:last-child{margin-bottom:0}
+  .roles{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .role{display:flex;align-items:center;gap:8px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:8px 14px;font-size:13.5px}
+  .role .em{font-size:18px}
+  .role b{color:var(--text)}
+  .role span{color:var(--muted)}
+
+  /* 时间线 */
+  .timeline{display:flex;gap:0;justify-content:space-between;margin:40px 0 8px;padding:0 6px;flex-wrap:wrap}
+  .tl-item{flex:1;min-width:120px;text-align:center;position:relative;padding-top:26px}
+  .tl-item::before{content:"";position:absolute;top:4px;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--glow)}
+  .tl-item::after{content:"";position:absolute;top:9px;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+  .tl-item:last-child::after{display:none}
+  .tl-date{font-size:12px;color:var(--accent);letter-spacing:.06em}
+  .tl-label{font-size:12.5px;color:var(--muted);margin-top:3px}
+
+  /* 日记卡 */
+  .diary{margin:40px 0;scroll-margin-top:24px}
+  .d-head{display:flex;align-items:baseline;gap:14px;margin-bottom:0}
+  .d-no{font-size:13px;color:var(--accent2);letter-spacing:.2em;font-weight:600;white-space:nowrap}
+  .d-date{font-size:12.5px;color:var(--muted);letter-spacing:.04em;margin-left:auto}
+  .d-card{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:34px 36px 30px;backdrop-filter:blur(10px);box-shadow:0 24px 70px rgba(0,0,0,.4);position:relative;overflow:hidden}
+  .d-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .d-title{font-size:23px;font-weight:700;color:#fff;margin-bottom:22px;letter-spacing:.02em;line-height:1.4}
+  .d-body{font-size:16.5px;color:#dfe6f3;line-height:2.0;letter-spacing:.01em}
+  .d-body p{margin-bottom:16px}
+  .d-body p:last-child{margin-bottom:0}
+  .d-body .quote{color:var(--accent);font-weight:500}
+  .tags{margin-top:24px;padding-top:18px;border-top:1px dashed var(--line);font-size:13px;color:var(--muted);letter-spacing:.02em}
+  .tags a{color:var(--accent);text-decoration:none}
+  .src{margin-top:10px;font-size:12px;color:var(--muted)}
+  .src a{color:var(--accent2);text-decoration:none;border-bottom:1px dotted var(--accent2)}
+
+  .divider{display:flex;align-items:center;gap:14px;margin:10px 0;color:var(--muted);font-size:12px;letter-spacing:.3em}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+
+  footer{padding:60px 0 90px;text-align:center;color:var(--muted);font-size:13px;line-height:2}
+  footer .tip{color:var(--accent2);font-size:13.5px;margin-bottom:10px}
+  footer a{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent)}
+
+  @media (max-width:640px){
+    .d-card{padding:26px 22px}
+    .d-title{font-size:19px}
+    .d-body{font-size:15.5px;line-height:1.95}
+    .intro{padding:24px}
+    .timeline{gap:10px}
+  }
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<div class="stars2"></div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="badge">银河系旅行攻略 · 配套连载</div>
+    <h1 class="title">度漪日记</h1>
+    <div class="sub">DU YI · DIARY</div>
+    <div class="author">作者 · <b>蒲熠星</b> &nbsp;|&nbsp; 银河系中心酒吧 001 号管家手记</div>
+    <div class="meta-line">2026.07.25 — 2026.07.29 · 共 4 篇节选 · 整理自蒲熠星微博原文</div>
+  </header>
+
+  <!-- 故事背景 -->
+  <section class="intro">
+    <h2>故事背景</h2>
+    <p>在蒲熠星「银河系旅行攻略」巡演构建的星际猎手宇宙里，<b style="color:#fff">度漪</b>是一位活了三百年的古人类歌者。地球毁灭后，他带着对故土的执念在银河流浪，最终落脚于「银河系中心酒吧」，成为 001 号管家，给老板 <b style="color:#fff">烬行</b>（弓箭手）打工还债。</p>
+    <p>这组日记以第一人称记录了度漪一场「明知故犯」的拍卖之行——他收到「冥王星前哨站·古地球文物专场」的推送，跑去拍卖场买回一堆在旁人看来不值钱的旧物：一个杯底刻着「北京」的搪瓷缸、一把画着梅花的折扇、一本抄错字的手抄诗集……以及回到酒吧后，与嘴硬心软的老板之间那段温柔又无奈的对话。</p>
+    <div class="roles">
+      <div class="role"><span class="em">🪭</span><b>度漪</b><span>古人类歌者 / 001号管家 / 拍卖场常客</span></div>
+      <div class="role"><span class="em">🏹</span><b>烬行</b><span>弓箭手 / 酒吧老板 / 嘴硬心软</span></div>
+      <div class="role"><span class="em">🧮</span><span>债务、信用点、古地球文物</span></div>
+    </div>
+  </section>
+
+  <!-- 时间线 -->
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-date">07.25</div><div class="tl-label">人在β星</div></div>
+    <div class="tl-item"><div class="tl-date">07.26</div><div class="tl-label">钱包阵亡</div></div>
+    <div class="tl-item"><div class="tl-date">07.28</div><div class="tl-label">面对现实</div></div>
+    <div class="tl-item"><div class="tl-date">07.29</div><div class="tl-label">两种好人</div></div>
+  </div>
+
+  <!-- 节选一 -->
+  <article class="diary" id="d1">
+    <div class="d-head">
+      <span class="d-no">节选（一）</span>
+      <span class="d-date">2026.07.25 17:46</span>
+    </div>
+    <div class="d-card">
+      <div class="d-title">人在β星，刚下飞船，被自己的账户余额吓清醒了</div>
+      <div class="d-body">
+        <p>今天从冥王星轨道回来，账户余额：负数。</p>
+        <p>度漪啊度漪，你怎么如此堕落，酒吧的赊账还没还完，新债又叠上去了。</p>
+        <p>而这一切的起因，是三天前我收到一条拍卖行推送——&ldquo;冥王星前哨站，古地球文物专场&rdquo;。</p>
+        <p>我发誓我只是去看看。</p>
+        <p>我真的发誓。</p>
+      </div>
+      <div class="tags">#蒲熠星演唱会# 🪭 #蒲熠星银河系旅行攻略#</div>
+      <div class="src">原文：<a href="https://weibo.com/2882733894/5324624118155030" target="_blank" rel="noopener">@蒲熠星 微博</a></div>
+    </div>
+  </article>
+
+  <div class="divider">· · ·</div>
+
+  <!-- 节选二 -->
+  <article class="diary" id="d2">
+    <div class="d-head">
+      <span class="d-no">节选（二）</span>
+      <span class="d-date">2026.07.26 13:54</span>
+    </div>
+    <div class="d-card">
+      <div class="d-title">心跳加速，钱包阵亡</div>
+      <div class="d-body">
+        <p>到了拍卖场，我就知道完了。</p>
+        <p>第一件拍品：一个搪瓷缸子。和我床头那个不是同一个，但很像。</p>
+        <p>起拍价五十信用点。</p>
+        <p>我举牌。对面一个泰坦星矿石大亨也举牌。</p>
+        <p>三百信用点。五百。八百。</p>
+        <p>一千二成交。</p>
+        <p>矿石大亨放弃了。他可能觉得为一个旧杯子花一千二不值。</p>
+        <p>我捧着杯子回座位的时候，手在抖。我摸到了杯底，杯底有一个刻痕，歪歪扭扭的&ldquo;北京&rdquo;两个字。不知道是谁刻的，不知道刻的时候是几几年。</p>
+        <p>拍卖还没结束，我的理智已经结束了</p>
+        <p>第二件：一把折扇。和我床头那把几乎一模一样。但这一把的扇面上，用蓝墨水画了一枝梅花。墨水褪色了，梅花只剩半个轮廓。</p>
+        <p>第三件：一本手抄诗集。封面没了，第一页是一首《静夜思》，抄错了一个字：&ldquo;疑是地上霜&rdquo;写成了&ldquo;疑是地上光&rdquo;。抄的人可能是小孩，也可能是老人，也可能是手抖。</p>
+        <p>我把诗集抱在怀里，后面的竞价我没听到。我只知道最后是我拍到的。多少钱？不知道。不重要。</p>
+      </div>
+      <div class="tags">#蒲熠星银河系旅行攻略# 🪭 #蒲熠星演唱会#</div>
+      <div class="src">原文：<a href="https://weibo.com/2882733894/5324928066781703" target="_blank" rel="noopener">@蒲熠星 微博</a></div>
+    </div>
+  </article>
+
+  <div class="divider">· · ·</div>
+
+  <!-- 节选三 -->
+  <article class="diary" id="d3">
+    <div class="d-head">
+      <span class="d-no">节选（三）</span>
+      <span class="d-date">2026.07.28 16:26</span>
+    </div>
+    <div class="d-card">
+      <div class="d-title">回到酒吧，面对现实</div>
+      <div class="d-body">
+        <p>今天把箱子搬回酒吧。</p>
+        <p>队长，不对，老板站在门口，看着我抱着一堆东西从飞船上下来。他什么都没说，帮我把箱子接过去。</p>
+        <p>然后他看到了拍卖行的标签。</p>
+        <p>然后他看了我一眼。</p>
+        <p>那一箭，正中靶心。</p>
+        <p>&ldquo;没钱结账，有钱拍卖？&rdquo;</p>
+        <p>我试图解释：&ldquo;这些可是文物！古地球文物！搪瓷缸子、折扇、手抄诗集……你知道这个诗集写了什么吗？这是——这是历史，这是——这是——&rdquo;</p>
+        <p>&ldquo;你的债务也是历史，&rdquo;他把箱子放在吧台上，&ldquo;从上次极夜到现在。很久了。&rdquo;</p>
+        <p>&ldquo;请听我一言……&rdquo;</p>
+        <p>&ldquo;你每次都说只是去看看。上次也是杯子，上上次是一整套邮票。你知道你的信用记录已经差到被限制高消费了吗？现在出门都坐不了星铁了，只能搭黑船！&rdquo;</p>
+        <p>&ldquo;那是我的错吗？那是拍卖行的错！他们为什么偏偏在我穷的时候推送这些？&rdquo;</p>
+        <p>他的表情变了。</p>
+        <p>&ldquo;你拍那个搪瓷缸子花了多少。&rdquo;</p>
+        <p>&ldquo;……一千二。&rdquo;</p>
+        <p>&ldquo;市场价两百。&rdquo;</p>
+        <p>&ldquo;那就是市场不懂啦。这个缸子杯底刻了北京两个字……&rdquo;</p>
+        <p>&ldquo;你卧室里已经摆了四个一模一样的缸子了。&rdquo;</p>
+        <p>&ldquo;……你看那个锈，锈不一样……&rdquo;</p>
+        <p>他看着我。我看着他。此时卧室窗台那四个搪瓷缸子正排排坐，在循环灯光下安静地反着光。</p>
+        <p>&ldquo;……你说得好像有道理。&rdquo;他终于说。</p>
+        <p>&ldquo;就是有道理！&rdquo;</p>
+        <p>&ldquo;但你还是要还钱。&rdquo;</p>
+        <p>&ldquo;……我知道。&rdquo;</p>
+        <p>于是我把搪瓷缸子摆到窗台上，和另外四个一起。五个缸子，五道不同的锈迹。我打算给它们按年代编号，当然不是拍卖的年代，是锈迹的年代。当然我也不知道哪道锈迹更老。我凭感觉来。</p>
+        <p>手抄诗集放在枕头旁边，折扇挂在床头。那把扇面有梅花，这把扇面什么都没有。两把扇子面对面挂着，像两个沉默的老人在打哑谜。</p>
+        <p>邮票放在酒吧的展示柜最上层。那个位置本来想放弓箭手的奖杯，他说不用，摆你这些破烂吧。</p>
+        <p>他嘴上说的是破烂，但他放的时候很小心。</p>
+      </div>
+      <div class="tags">#蒲熠星演唱会# 🪭🏹 #蒲熠星银河系旅行攻略#</div>
+      <div class="src">原文：<a href="https://weibo.com/2882733894/5325690723370469" target="_blank" rel="noopener">@蒲熠星 微博</a></div>
+    </div>
+  </article>
+
+  <div class="divider">· · ·</div>
+
+  <!-- 节选四 -->
+  <article class="diary" id="d4">
+    <div class="d-head">
+      <span class="d-no">节选（四）</span>
+      <span class="d-date">2026.07.29 18:49</span>
+    </div>
+    <div class="d-card">
+      <div class="d-title">这个世界上有两种人对你好</div>
+      <div class="d-body">
+        <p>今天有客人打趣问我：</p>
+        <p>&ldquo;收集这些不值钱的东西干嘛？&rdquo;</p>
+        <p>&ldquo;完全看不出是拍卖场出来的。&rdquo;</p>
+        <p>一个搪瓷缸子，装过某个人的早晨。一把扇字，扇过某个人的夏天。一本手抄诗集，写过一个孩子的童年。</p>
+        <p>这些东西不仅是文物。它们是时间的碎屑，是活过的证据，是地球上曾经有人在夏天的晚上扇着扇子、捧着搪瓷缸、对着月亮背唐诗的证明。</p>
+        <p>而我，一个负债累累的古人类歌手兼管家。我愿意把我所有的星际币换成拍卖场的信用点，再去换这些碎屑。</p>
+        <p>因为总有一天，我会死。我的身体会湮没，我的嗓子会沉默，我的白发会被风吹散。</p>
+        <p>但那个搪瓷缸子还会在。杯底上的北京还会在。只要它在，就有人知道曾经有一个星球叫地球，地球上有一个城市叫北京，北京有一个人，在杯底刻下了故乡的名字。</p>
+        <p>我想起第一天上班的那天晚上。打烊。我擦完最后一个杯子，然后把白手套摘下来，坐到他面前。</p>
+        <p>&ldquo;我有件事想跟你说。&rdquo;</p>
+        <p>他抬头。</p>
+        <p>&ldquo;我可能暂时还不清。因为……拍卖会又要开始了。我还是会去。&rdquo;</p>
+        <p>他沉默了一会儿。然后说了一句我没预料到的话。</p>
+        <p>&ldquo;我又没不让你去。&rdquo;</p>
+        <p>&ldquo;咦？老板万岁！&rdquo;</p>
+        <p>&ldquo;大不了就是在这里多干个一两年嘛&rdquo;，他把擦好的杯子一个一个放回架子上，动作很慢，像在深思熟虑下排列某种兵阵，&ldquo;反正管家服也做了，不穿浪费。&rdquo;</p>
+        <p>我看着他。他继续摆杯子。</p>
+        <p>&ldquo;看什么？客人对你好评如潮，我还能把你开了不成？&rdquo;</p>
+        <p>这个世界上有两种人对你好。一种人劝你改变。另一种人知道你改不了，所以给你做了一套工作服，让你在犯错的路上走得更体面一点。</p>
+        <p>前者是好人。后者是这个人。</p>
+      </div>
+      <div class="tags">#蒲熠星演唱会# 🪭🧮 #蒲熠星银河系旅行攻略#</div>
+      <div class="src">原文：<a href="https://weibo.com/2882733894/5326089650178711" target="_blank" rel="noopener">@蒲熠星 微博（经转载）</a></div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="tip">✦ 故事仍在连载 ✦</div>
+    <p>以上为蒲熠星在微博发布的「度漪日记」节选（一）至（四）完整原文，整理时间 2026.07.30。<br>如后续有新篇目，可随时让我继续收集补充。</p>
+    <p style="margin-top:14px">蒲熠星微博主页：<a href="https://weibo.com/u/2882733894" target="_blank" rel="noopener">weibo.com/u/2882733894</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
