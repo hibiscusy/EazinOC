@@ -20,3 +20,8 @@
 
 ## 角色英文名（用户指定）
 烬行=JINXING · 铃兰=LYNPHREDIL · 谶=CHAIN · 度漪=DU YI · 赛博恩=CYBORN · 斯沃德麦伦=SWORD MELON · 塔拉撒里昂=THALASSARION
+
+## Git 协作约定
+- 远程 `origin` = `git@github.com:hibiscusy/EazinOC.git`（SSH 免密，本机 `~/.ssh/id_ed25519`）。
+- **推送节奏**：用户要求「改完前不推送，累积本地 commit，等用户说『改完了/推送』再一次性 `git push`」。即平时只 `git commit`，不要自动 push；记忆/笔记改动也一并本地提交、暂存不推。
+- 旧部署(CloudStudio 沙箱)为旧版，定稿后需重新 deploy 才同步。
