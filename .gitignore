@@ -16,3 +16,6 @@ dist_old*/
 # 系统/编辑器
 .DS_Store
 Thumbs.db
+
+# 一次性临时脚本（非站点文件）
+adjust_tl.py
