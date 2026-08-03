@@ -1,14 +1,15 @@
 # 项目记忆 · 蒲熠星 OC 宇宙人物时间线页面
 
 ## 项目概况
-- 主文件（索引/角色卡页）：`OC宇宙-人物时间线-蒲熠星.html`（本地预览服务 127.0.0.1:8123）
+- 主文件（索引/角色卡页）：`OC宇宙-人物时间线-蒲熠星.html`。
+- **本地预览正确方式（重要）**：必须用「以 `dist/` 为根的本地 HTTP 服务」看图。`python -m http.server 8090 --directory dist` 启动，访问 `http://127.0.0.1:8090/index.html`（8090 当前在跑）。**坑**：用 `present_files` 传本地 html 文件路径会走 WorkBuddy 静态预览面板（`127.0.0.1:53081/static-html/...`），该面板**不加载 `crops/` 等相对子目录资源 → 图片全部不显示**。所以带图片的页面一律用 HTTP 服务 URL 预览，不要传文件路径。中文文件名 URL 在 http.server 下会 404，统一用英文入口 `index.html`。
 - **多页结构（2026-07-31 重构）**：每个 OC 角色拥有独立故事页，索引页角色卡点击进入。
   - 故事页：`story-jx.html`(烬行) `story-dy.html`(度漪) `story-cb.html`(赛博恩) `story-chen.html`(谶) `story-ll.html`(铃兰) `story-swd.html`(斯沃德·麦伦) `story-tl.html`(塔拉撒里昂)
   - 兄弟线（烬行&赛博恩）内容同时存在于 `story-jx.html` 与 `story-cb.html`
   - 故事页含：返回链接 + 角色头图(hero) + 该角色 `<section class="line">` 时间线 + footer
   - 塔拉撒里昂页中"见谶线"链接已改为 `story-chen.html#line-chen` 跨页锚点
 - 共享样式：`theme.css`（从原 `<style>` 抽出，索引页与所有故事页均 `<link>` 引用；含 `.role-link`/`.story-hero`/`.back` 等追加样式）
-- 角色图：`crops/anime_1~7.png`（按文件名对应）；本人照 `crops/pyx-photo.jpg`。
+- 角色图：`crops/anime_1~7.webp`（页面实际引用，png 为源图）；本人照 `crops/pyx-photo.jpg`。
 - 云端分享：CloudStudio 沙箱（旧版），需重新部署（把整个工作区含 theme.css/story-*.html/crops 一起打包到 deploy/oc-share）才同步最新。
 - 生成脚本：`build_stories.py`（可重跑重建故事页；注意角色卡 id 是 `r-ch` 不是 `r-chen`）
 

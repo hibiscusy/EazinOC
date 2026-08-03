@@ -78,7 +78,7 @@
   @media (max-width:640px){ .rc-imgs img{height:auto} }
 
   /* 默认小标题样式：各分区小标题统一使用 .sec-title（左侧渐变色条 + 字距加宽） */
-  .sec-title{font-size:14px;letter-spacing:.2em;color:var(--accent);margin:0 0 22px;font-weight:600;display:flex;align-items:center;gap:10px}
+  .sec-title{font-size:14px;letter-spacing:.2em;color:var(--accent);margin:32px 0 16px;font-weight:600;display:flex;align-items:center;gap:10px}
   .sec-title::before{content:"";width:5px;height:18px;background:linear-gradient(180deg,var(--accent),var(--accent2));border-radius:3px}
   /* 人物线 */
   .line{margin:48px 0;scroll-margin-top:64px}

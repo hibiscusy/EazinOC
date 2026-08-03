@@ -23,3 +23,10 @@ uniform_src.py
 make_stars*.py
 _t*.webp
 nul
+
+# 一次性临时脚本（非站点文件）
+check_story_lines.py
+daily_break.py
+daily_roles_break.py
+transform_daily.py
+transform_story_lines.py
