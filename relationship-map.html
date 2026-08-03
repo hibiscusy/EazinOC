@@ -7,13 +7,13 @@
 <style>
   html,body{margin:0;padding:0;background:#0b1020;min-height:100vh}
   body{display:flex;justify-content:center;align-items:flex-start;font-family:'Inter','PingFang SC','Microsoft YaHei',sans-serif}
-  .wrap{width:100%;max-width:820px;padding:24px}
+  .wrap{width:100%;max-width:860px;padding:24px}
   svg{width:100%;height:auto;display:block}
 </style>
 </head>
 <body>
 <div class="wrap">
-<svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" role="img" font-family="'Inter','PingFang SC','Microsoft YaHei',sans-serif">
+<svg viewBox="0 0 700 720" xmlns="http://www.w3.org/2000/svg" role="img" font-family="'Inter','PingFang SC','Microsoft YaHei',sans-serif">
   <title>星际猎手角色关系图</title>
   <desc>银河系中心酒吧为全员据点，谶为关系网心，连接妈妈铃兰、爸爸赛博恩、师父度漪、相遇塔拉撒里昂；烬行与赛博恩为兄弟并经营酒吧，铃兰救治斯沃德，烬行教斯沃德射箭。</desc>
 
@@ -23,23 +23,25 @@
     <clipPath id="cJ"><circle cx="566" cy="150" r="32"/></clipPath>
     <clipPath id="cB"><circle cx="600" cy="300" r="32"/></clipPath>
     <clipPath id="cL"><circle cx="108" cy="300" r="32"/></clipPath>
-    <clipPath id="cT"><circle cx="340" cy="455" r="32"/></clipPath>
-    <clipPath id="cS"><circle cx="520" cy="505" r="32"/></clipPath>
+    <clipPath id="cT"><circle cx="340" cy="415" r="32"/></clipPath>
+    <clipPath id="cS"><circle cx="620" cy="630" r="32"/></clipPath>
   </defs>
 
-  <rect x="24" y="24" width="632" height="552" rx="24" fill="none" stroke="#4a5575" stroke-width="1" stroke-dasharray="6 6" opacity="0.8"/>
+  <rect x="24" y="24" width="652" height="672" rx="24" fill="none" stroke="#4a5575" stroke-width="1" stroke-dasharray="6 6" opacity="0.8"/>
   <text x="44" y="52" fill="#9fb3d9" font-size="13" font-weight="500">银河系中心酒吧 · 全员据点</text>
 
+  <!-- 连线 -->
   <g fill="none" stroke-width="2">
     <line x1="340" y1="260" x2="340" y2="138" stroke="#534AB7"/>
     <line x1="300" y1="300" x2="140" y2="300" stroke="#993556"/>
     <line x1="380" y1="300" x2="568" y2="300" stroke="#993556"/>
-    <line x1="340" y1="340" x2="340" y2="423" stroke="#0F6E56"/>
-    <line x1="108" y1="332" x2="492" y2="477" stroke="#3B6D11"/>
+    <line x1="340" y1="340" x2="340" y2="383" stroke="#0F6E56"/>
+    <line x1="108" y1="332" x2="620" y2="630" stroke="#3B6D11"/>
     <line x1="566" y1="182" x2="600" y2="268" stroke="#BA7517"/>
-    <line x1="566" y1="182" x2="520" y2="473" stroke="#185FA5"/>
+    <line x1="566" y1="182" x2="620" y2="630" stroke="#185FA5"/>
   </g>
 
+  <!-- 关系文字标签（实底背景居中于线段） -->
   <g font-size="12" font-weight="500">
     <rect x="318" y="188" width="44" height="22" rx="6" fill="#0b1020"/>
     <text x="340" y="203" text-anchor="middle" fill="#7F77DD">师父</text>
@@ -47,68 +49,77 @@
     <text x="220" y="304" text-anchor="middle" fill="#D4537E">妈妈</text>
     <rect x="452" y="289" width="44" height="22" rx="6" fill="#0b1020"/>
     <text x="474" y="304" text-anchor="middle" fill="#D4537E">爸爸</text>
-    <rect x="318" y="371" width="44" height="20" rx="6" fill="#0b1020"/>
-    <text x="340" y="386" text-anchor="middle" fill="#1D9E75">相遇</text>
-    <rect x="276" y="394" width="44" height="20" rx="6" fill="#0b1020"/>
-    <text x="298" y="409" text-anchor="middle" fill="#639922">救治</text>
+    <rect x="318" y="351" width="44" height="22" rx="6" fill="#0b1020"/>
+    <text x="340" y="366" text-anchor="middle" fill="#1D9E75">相遇</text>
+    <rect x="342" y="471" width="44" height="22" rx="6" fill="#0b1020"/>
+    <text x="364" y="486" text-anchor="middle" fill="#639922">救治</text>
     <rect x="561" y="214" width="44" height="22" rx="6" fill="#0b1020"/>
     <text x="583" y="229" text-anchor="middle" fill="#BA7517">兄弟</text>
-    <rect x="514" y="317" width="54" height="20" rx="6" fill="#0b1020"/>
-    <text x="541" y="332" text-anchor="middle" fill="#378ADD">教射箭</text>
+    <rect x="573" y="396" width="54" height="22" rx="6" fill="#0b1020"/>
+    <text x="600" y="411" text-anchor="middle" fill="#378ADD">教射箭</text>
   </g>
 
+  <!-- 角色节点（头像圆 + 描边=发色 + 名字=发色浅版） -->
   <g>
+    <!-- 谶 · 红棕发 -->
     <image href="crops/anime_3.webp" x="300" y="260" width="80" height="80" preserveAspectRatio="xMidYMid slice" clip-path="url(#cC)"/>
-    <circle cx="340" cy="300" r="40" fill="none" stroke="#AFA9EC" stroke-width="2"/>
+    <circle cx="340" cy="300" r="40" fill="none" stroke="#B07568" stroke-width="2"/>
     <rect x="318" y="341" width="44" height="20" rx="6" fill="#0b1020"/>
-    <text x="340" y="356" text-anchor="middle" fill="#CECBF6" font-size="12">谶</text>
+    <text x="340" y="356" text-anchor="middle" fill="#D4ADA4" font-size="12">谶</text>
 
+    <!-- 度漪 · 深褐发 -->
     <image href="crops/anime_5.webp" x="308" y="74" width="64" height="64" preserveAspectRatio="xMidYMid slice" clip-path="url(#cD)"/>
-    <circle cx="340" cy="106" r="32" fill="none" stroke="#AFA9EC" stroke-width="2"/>
+    <circle cx="340" cy="106" r="32" fill="none" stroke="#6B5640" stroke-width="2"/>
     <rect x="314" y="137" width="52" height="20" rx="6" fill="#0b1020"/>
-    <text x="340" y="152" text-anchor="middle" fill="#CECBF6" font-size="12">度漪</text>
+    <text x="340" y="152" text-anchor="middle" fill="#A89A88" font-size="12">度漪</text>
 
+    <!-- 烬行 · 灰蓝发 -->
     <image href="crops/anime_1.webp" x="534" y="118" width="64" height="64" preserveAspectRatio="xMidYMid slice" clip-path="url(#cJ)"/>
-    <circle cx="566" cy="150" r="32" fill="none" stroke="#EF9F27" stroke-width="2"/>
+    <circle cx="566" cy="150" r="32" fill="none" stroke="#7BA3C0" stroke-width="2"/>
     <rect x="540" y="181" width="52" height="20" rx="6" fill="#0b1020"/>
-    <text x="566" y="196" text-anchor="middle" fill="#FAC775" font-size="12">烬行</text>
+    <text x="566" y="196" text-anchor="middle" fill="#B8D4E8" font-size="12">烬行</text>
 
+    <!-- 赛博恩 · 银白发 -->
     <image href="crops/anime_7.webp" x="568" y="268" width="64" height="64" preserveAspectRatio="xMidYMid slice" clip-path="url(#cB)"/>
-    <circle cx="600" cy="300" r="32" fill="none" stroke="#ED93B1" stroke-width="2"/>
+    <circle cx="600" cy="300" r="32" fill="none" stroke="#D8E0EC" stroke-width="2"/>
     <rect x="568" y="331" width="64" height="20" rx="6" fill="#0b1020"/>
-    <text x="600" y="346" text-anchor="middle" fill="#F4C0D1" font-size="12">赛博恩</text>
+    <text x="600" y="346" text-anchor="middle" fill="#EFF3F8" font-size="12">赛博恩</text>
 
+    <!-- 铃兰 · 绿发 -->
     <image href="crops/anime_2.webp" x="76" y="268" width="64" height="64" preserveAspectRatio="xMidYMid slice" clip-path="url(#cL)"/>
-    <circle cx="108" cy="300" r="32" fill="none" stroke="#ED93B1" stroke-width="2"/>
+    <circle cx="108" cy="300" r="32" fill="none" stroke="#5DA87A" stroke-width="2"/>
     <rect x="82" y="331" width="52" height="20" rx="6" fill="#0b1020"/>
-    <text x="108" y="346" text-anchor="middle" fill="#F4C0D1" font-size="12">铃兰</text>
+    <text x="108" y="346" text-anchor="middle" fill="#98D4AD" font-size="12">铃兰</text>
 
-    <image href="crops/anime_6.webp" x="308" y="423" width="64" height="64" preserveAspectRatio="xMidYMid slice" clip-path="url(#cT)"/>
-    <circle cx="340" cy="455" r="32" fill="none" stroke="#5DCAA5" stroke-width="2"/>
-    <rect x="302" y="486" width="76" height="20" rx="6" fill="#0b1020"/>
-    <text x="340" y="501" text-anchor="middle" fill="#9FE1CB" font-size="12">塔拉撒里昂</text>
+    <!-- 塔拉撒里昂 · 金黄发 -->
+    <image href="crops/anime_6.webp" x="308" y="383" width="64" height="64" preserveAspectRatio="xMidYMid slice" clip-path="url(#cT)"/>
+    <circle cx="340" cy="415" r="32" fill="none" stroke="#E8D47A" stroke-width="2"/>
+    <rect x="298" y="446" width="84" height="20" rx="6" fill="#0b1020"/>
+    <text x="340" y="461" text-anchor="middle" fill="#F5EBB8" font-size="12">塔拉撒里昂</text>
 
-    <image href="crops/anime_4.webp" x="488" y="473" width="64" height="64" preserveAspectRatio="xMidYMid slice" clip-path="url(#cS)"/>
-    <circle cx="520" cy="505" r="32" fill="none" stroke="#97C459" stroke-width="2"/>
-    <rect x="488" y="536" width="64" height="20" rx="6" fill="#0b1020"/>
-    <text x="520" y="551" text-anchor="middle" fill="#C0DD97" font-size="12">斯沃德</text>
+    <!-- 斯沃德 · 橙棕发 -->
+    <image href="crops/anime_4.webp" x="588" y="598" width="64" height="64" preserveAspectRatio="xMidYMid slice" clip-path="url(#cS)"/>
+    <circle cx="620" cy="630" r="32" fill="none" stroke="#C97D42" stroke-width="2"/>
+    <rect x="590" y="661" width="64" height="20" rx="6" fill="#0b1020"/>
+    <text x="620" y="676" text-anchor="middle" fill="#E8BC94" font-size="12">斯沃德</text>
   </g>
 
+  <!-- 图例 -->
   <g font-size="11" font-weight="400">
-    <circle cx="70" cy="592" r="5" fill="#BA7517"/>
-    <text x="82" y="596" fill="#B4B2A9">兄弟</text>
-    <circle cx="150" cy="592" r="5" fill="#993556"/>
-    <text x="162" y="596" fill="#B4B2A9">爸妈</text>
-    <circle cx="228" cy="592" r="5" fill="#534AB7"/>
-    <text x="240" y="596" fill="#B4B2A9">师徒</text>
-    <circle cx="306" cy="592" r="5" fill="#3B6D11"/>
-    <text x="318" y="596" fill="#B4B2A9">救治</text>
-    <circle cx="384" cy="592" r="5" fill="#185FA5"/>
-    <text x="396" y="596" fill="#B4B2A9">教射箭</text>
-    <circle cx="478" cy="592" r="5" fill="#0F6E56"/>
-    <text x="490" y="596" fill="#B4B2A9">相遇</text>
-    <circle cx="556" cy="592" r="5" fill="#4a5575"/>
-    <text x="568" y="596" fill="#B4B2A9">据点</text>
+    <circle cx="70" cy="692" r="5" fill="#BA7517"/>
+    <text x="82" y="696" fill="#B4B2A9">兄弟</text>
+    <circle cx="150" cy="692" r="5" fill="#993556"/>
+    <text x="162" y="696" fill="#B4B2A9">爸妈</text>
+    <circle cx="228" cy="692" r="5" fill="#534AB7"/>
+    <text x="240" y="696" fill="#B4B2A9">师徒</text>
+    <circle cx="306" cy="692" r="5" fill="#3B6D11"/>
+    <text x="318" y="696" fill="#B4B2A9">救治</text>
+    <circle cx="384" cy="692" r="5" fill="#185FA5"/>
+    <text x="396" y="696" fill="#B4B2A9">教射箭</text>
+    <circle cx="478" cy="692" r="5" fill="#0F6E56"/>
+    <text x="490" y="696" fill="#B4B2A9">相遇</text>
+    <circle cx="556" cy="692" r="5" fill="#4a5575"/>
+    <text x="568" y="696" fill="#B4B2A9">据点</text>
   </g>
 </svg>
 </div>
