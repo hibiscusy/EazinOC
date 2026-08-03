@@ -12,7 +12,7 @@
 <div class="wrap story-page">
   <a class="back" href="OC宇宙-人物时间线-蒲熠星.html">&larr; 返回角色宇宙</a>
   <div class="story-hero">
-    <img src="crops/anime_5.png" alt="度漪">
+    <img src="crops/anime_5.webp" alt="度漪">
     <div class="st-emoji">
       <div class="em">🪭</div>
       <h1>度漪</h1>
@@ -22,11 +22,11 @@
 <section class="line" id="line-dy">
     <div class="line-head"><span class="em">🪭</span><h2>度漪 · 古人类歌者</h2><div class="sub2">001 号管家<br>负债累累的收藏家</div></div>
     <p class="line-desc">活了三百年的古人类，地球毁灭后带着对故土的执念流浪，落脚银河系中心酒吧打工还债。他会为不值钱的"古地球文物"一掷千金——因为那是"活过的证据"。</p>
-<div class="tabs" id="dy-tabs">
-  <button type="button" class="tab-btn active" data-tab="diary">日记</button>
-  <button type="button" class="tab-btn" data-tab="daily">日常</button>
+<div class="tabs" id="dy-tabs" role="tablist" aria-label="度漪内容切换">
+  <button type="button" class="tab-btn active" id="dy-tab-diary" role="tab" aria-selected="true" aria-controls="tab-diary" data-tab="diary">日记</button>
+  <button type="button" class="tab-btn" id="dy-tab-daily" role="tab" aria-selected="false" aria-controls="tab-daily" data-tab="daily">日常</button>
 </div>
-    <div class="tab-panel" id="tab-diary">
+    <div class="tab-panel" id="tab-diary" role="tabpanel" aria-labelledby="dy-tab-diary">
     <div class="tl">
 
       <div class="node">
@@ -168,7 +168,7 @@
 
     </div>
     </div>
-    <div class="tab-panel" id="tab-daily" hidden>
+    <div class="tab-panel" id="tab-daily" role="tabpanel" aria-labelledby="dy-tab-daily" hidden>
     <div class="tl">
       <div class="node">
         <div class="card">
@@ -189,18 +189,6 @@
     <p style="margin-top:10px;color:var(--muted);font-size:11.5px">返回：<a href="OC宇宙-人物时间线-蒲熠星.html">角色宇宙主页</a></p>
   </footer>
 </div>
-<script>
-(function(){
-  var tabs=document.getElementById('dy-tabs');
-  if(!tabs)return;
-  tabs.addEventListener('click',function(e){
-    var b=e.target.closest('.tab-btn'); if(!b)return;
-    var t=b.getAttribute('data-tab');
-    tabs.querySelectorAll('.tab-btn').forEach(function(x){x.classList.toggle('active',x===b)});
-    document.getElementById('tab-diary').hidden=(t!=='diary');
-    document.getElementById('tab-daily').hidden=(t!=='daily');
-  });
-})();
-</script>
+<script src="tabs.js"></script>
 </body>
 </html>

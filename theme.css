@@ -85,18 +85,9 @@
   .rc-imgs figcaption{font-size:10.5px;color:var(--muted);text-align:center;margin-top:5px;letter-spacing:.05em}
   @media (max-width:640px){ .rc-imgs img{height:auto} }
 
-  /* 总览时间轴 */
   /* 默认小标题样式：各分区小标题统一使用 .sec-title（左侧渐变色条 + 字距加宽） */
   .sec-title{font-size:14px;letter-spacing:.2em;color:var(--accent);margin:0 0 22px;font-weight:600;display:flex;align-items:center;gap:10px}
   .sec-title::before{content:"";width:5px;height:18px;background:linear-gradient(180deg,var(--accent),var(--accent2));border-radius:3px}
-  .otl{display:flex;gap:0;justify-content:space-between;padding:0 4px;flex-wrap:wrap}
-  .otl-item{flex:1;min-width:110px;text-align:center;position:relative;padding-top:24px}
-  .otl-item::before{content:"";position:absolute;top:2px;left:50%;transform:translateX(-50%);width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--glow)}
-  .otl-item::after{content:"";position:absolute;top:7px;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
-  .otl-item:last-child::after{display:none}
-  .otl-date{font-size:11.5px;color:var(--accent);letter-spacing:.04em}
-  .otl-label{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5}
-
   /* 人物线 */
   .line{margin:48px 0;scroll-margin-top:64px}
   .line-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}

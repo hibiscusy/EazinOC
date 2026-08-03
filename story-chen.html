@@ -12,7 +12,7 @@
 <div class="wrap story-page">
   <a class="back" href="OC宇宙-人物时间线-蒲熠星.html">&larr; 返回角色宇宙</a>
   <div class="story-hero">
-    <img src="crops/anime_3.png" alt="谶">
+    <img src="crops/anime_3.webp" alt="谶">
     <div class="st-emoji">
       <div class="em">🗡️</div>
       <h1>谶</h1>
@@ -22,11 +22,11 @@
 <section class="line" id="line-chen">
     <div class="line-head"><span class="em">🗡️</span><h2>谶 · 液态金属剑灵</h2><div class="sub2">红发剑灵<br>认妈认爸的小崽</div></div>
     <p class="line-desc">一把本就"活着"的魔剑，被触发显现为人形。他拜度漪为师学"当大侠"，苏醒后认铃兰为"妈妈"、赛博恩为"爸爸"，是宇宙里最萌也最厉害的存在。</p>
-<div class="tabs" id="chen-tabs">
-  <button type="button" class="tab-btn active" data-tab="birth">谶的诞生</button>
-  <button type="button" class="tab-btn" data-tab="daily">日常</button>
+<div class="tabs" id="chen-tabs" role="tablist" aria-label="谶内容切换">
+  <button type="button" class="tab-btn active" id="chen-tab-birth" role="tab" aria-selected="true" aria-controls="tab-birth" data-tab="birth">谶的诞生</button>
+  <button type="button" class="tab-btn" id="chen-tab-daily" role="tab" aria-selected="false" aria-controls="tab-daily" data-tab="daily">日常</button>
 </div>
-    <div class="tab-panel" id="tab-birth">
+    <div class="tab-panel" id="tab-birth" role="tabpanel" aria-labelledby="chen-tab-birth">
     <div class="tl">
 
       <div class="node">
@@ -109,7 +109,7 @@
       
 
     </div>    </div>
-    <div class="tab-panel" id="tab-daily" hidden>
+    <div class="tab-panel" id="tab-daily" role="tabpanel" aria-labelledby="chen-tab-daily" hidden>
     <div class="tl">
       <div class="node">
         <div class="card">
@@ -153,20 +153,6 @@
     <p style="margin-top:10px;color:var(--muted);font-size:11.5px">返回：<a href="OC宇宙-人物时间线-蒲熠星.html">角色宇宙主页</a></p>
   </footer>
 </div>
-<script>
-(function(){
-  document.querySelectorAll('.tabs').forEach(function(tabs){
-    tabs.addEventListener('click',function(e){
-      var b=e.target.closest('.tab-btn'); if(!b)return;
-      var t=b.getAttribute('data-tab');
-      tabs.querySelectorAll('.tab-btn').forEach(function(x){x.classList.toggle('active',x===b)});
-      var parent=tabs.parentElement;
-      parent.querySelectorAll(':scope > .tab-panel').forEach(function(p){
-        p.hidden=(p.id!=='tab-'+t);
-      });
-    });
-  });
-})();
-</script>
+<script src="tabs.js"></script>
 </body>
 </html>
