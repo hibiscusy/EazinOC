@@ -11,6 +11,7 @@ crops/*_sheet.jpg
 # 构建/部署产物（由 build_deploy.py 生成，重新部署会再生成）
 dist/
 dist_old/
+dist_old*/
 
 # 系统/编辑器
 .DS_Store
