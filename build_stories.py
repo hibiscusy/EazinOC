@@ -102,7 +102,7 @@ def build_story_page(story_file, emoji, name, en, img, section_html):
 <div class="stars"></div>
 <div class="stars2"></div>
 <div class="wrap story-page">
-  <a class="back" href="{INDEX}">&larr; 返回角色宇宙</a>
+  <a class="back" href="{INDEX}">&larr; 返回星际宇宙</a>
   <div class="story-hero">
     <img src="{img}" alt="{name}">
     <div class="st-emoji">
