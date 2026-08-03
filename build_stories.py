@@ -68,7 +68,7 @@ line_tl   = extract_section(html, "line-tl")
 # card_id -> (story_file, emoji, name, en, img)
 cards = {
     "r-jx":   ("story-jx.html",   "🏹", "烬行",       "JINXING",      "crops/anime_1.png"),
-    "r-dy":   ("story-dy.html",   "🪭", "度漪",       "DU YI",        "crops/anime_5.png"),
+    "r-dy":   ("story-dy.html",   "🎤", "度漪",       "DU YI",        "crops/anime_5.png"),
     "r-cb":   ("story-cb.html",   "⚙️", "赛博恩",     "CYBORN",       "crops/anime_7.png"),
     "r-ch":   ("story-chen.html", "🗡️", "谶",         "CHAIN",        "crops/anime_3.png"),
     "r-ll":   ("story-ll.html",   "💚", "铃兰",       "LYNPHREDIL",   "crops/anime_2.png"),
