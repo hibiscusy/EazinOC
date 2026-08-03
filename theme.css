@@ -124,6 +124,9 @@
   .figure-card .img-caption{margin-top:12px;font-size:12.5px;color:var(--muted);line-height:1.7;text-align:center}
   .figure-card .img-caption b{color:var(--soft)}
 
+  /* OC关系网卡片：背景样式与「小说家 蒲熠星」角色卡(.rc#r-pyx)一致 */
+  .rel-map{background:linear-gradient(100deg,rgba(127,180,232,.14),rgba(255,128,159,.08));border:1px solid rgba(127,180,232,.4);border-radius:16px;padding:18px 20px;backdrop-filter:blur(8px)}
+
   @media (max-width:640px){
     .roles-grid{grid-template-columns:1fr}
     .nav a{font-size:11.5px;padding:4px 9px}
