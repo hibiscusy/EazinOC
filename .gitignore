@@ -20,3 +20,6 @@ Thumbs.db
 # 一次性临时脚本（非站点文件）
 adjust_tl.py
 uniform_src.py
+make_stars*.py
+_t*.webp
+nul
