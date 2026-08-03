@@ -156,12 +156,16 @@
   .story-page{padding-bottom:40px}
   .back{display:inline-flex;align-items:center;gap:6px;margin:18px 0 8px;color:var(--accent);text-decoration:none;font-size:14px;letter-spacing:.05em}
   .back:hover{text-decoration:underline}
-  .story-hero{display:flex;align-items:center;gap:18px;margin:6px 0 24px;padding:14px 18px;background:var(--panel);border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(8px)}
-  .story-hero img{width:auto;height:auto;max-height:130px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.3)}
-  .story-hero .em{font-size:32px;line-height:1}
-  .story-hero h1{font-size:23px;color:#fff;margin:2px 0 0}
-  .story-hero .en{font-size:12.5px;color:var(--muted);letter-spacing:.06em;margin-top:3px}
-  .story-hero .st-emoji{display:flex;flex-direction:column;gap:4px}
+  /* 角色页人物介绍卡片：图标+名称 / 简介 / 说明 / 配图（纵向 4 行） */
+  .story-hero{margin:6px 0 26px;padding:26px 22px 30px;background:var(--panel);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(10px);text-align:center}
+  .story-hero .st-row1{display:flex;align-items:center;justify-content:center;gap:14px}
+  .story-hero .st-emoji{font-size:40px;line-height:1}
+  .story-hero .st-name-wrap{display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+  .story-hero h1{font-size:32px;color:#fff;font-weight:800;letter-spacing:.04em;line-height:1.15;margin:0}
+  .story-hero .en{font-size:24px;color:var(--accent);letter-spacing:.1em;font-weight:600;margin-top:3px;display:block}
+  .story-hero .st-intro{font-size:24px;color:var(--soft);margin:18px 0 0;letter-spacing:.03em;line-height:1.5}
+  .story-hero .st-desc{font-size:24px;color:var(--soft);margin:10px auto 0;line-height:1.85;max-width:720px}
+  .story-hero .st-img{display:block;width:auto;height:auto;max-width:100%;margin:20px auto 0;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 
 
 /* 角色页内 日记 / 日常 切换菜单 */
