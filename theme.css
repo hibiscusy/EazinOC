@@ -162,9 +162,9 @@
   .story-hero .st-emoji{font-size:40px;line-height:1}
   .story-hero .st-name-wrap{display:flex;flex-direction:column;align-items:flex-start;text-align:left}
   .story-hero h1{font-size:32px;color:#fff;font-weight:800;letter-spacing:.04em;line-height:1.15;margin:0}
-  .story-hero .en{font-size:24px;color:var(--accent);letter-spacing:.1em;font-weight:600;margin-top:3px;display:block}
-  .story-hero .st-intro{font-size:24px;color:var(--soft);margin:18px 0 0;letter-spacing:.03em;line-height:1.5}
-  .story-hero .st-desc{font-size:24px;color:var(--soft);margin:10px auto 0;line-height:1.85;max-width:720px}
+  .story-hero .en{font-size:14.5px;color:var(--muted);letter-spacing:.1em;font-weight:600;margin-top:3px;display:block}
+  .story-hero .st-intro{font-size:14.5px;color:var(--muted);margin:18px 0 0;letter-spacing:.03em;line-height:1.5}
+  .story-hero .st-desc{font-size:14.5px;color:var(--soft);margin:10px auto 0;line-height:1.85;max-width:720px}
   .story-hero .st-img{display:block;width:auto;height:auto;max-width:100%;margin:20px auto 0;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 
 
