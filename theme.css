@@ -176,7 +176,7 @@
 .zoom-wrap img{transition:transform .25s ease, box-shadow .25s ease}
 .zoom-wrap:hover img{transform:scale(1.015); box-shadow:0 8px 32px rgba(0,0,0,.35)}
 .zoom-overlay{
-  display:none; position:fixed; inset:0; z-index:9999;
+  display:none; position:fixed; inset:0; z-index:999999;
   background:rgba(0,0,0,.72); backdrop-filter:blur(8px);
   justify-content:center; align-items:center; cursor:pointer;
   padding:24px; box-sizing:border-box;
