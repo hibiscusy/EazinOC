@@ -2,7 +2,7 @@
 
 ## 项目概况
 - 主文件（索引/角色卡页）：`OC宇宙-人物时间线-蒲熠星.html`。
-- **本地预览正确方式（重要）**：必须用「以 `dist/` 为根的本地 HTTP 服务」看图。`python -m http.server 8090 --directory dist` 启动，访问 `http://127.0.0.1:8090/index.html`（8090 当前在跑）。**坑**：用 `present_files` 传本地 html 文件路径会走 WorkBuddy 静态预览面板（`127.0.0.1:53081/static-html/...`），该面板**不加载 `crops/` 等相对子目录资源 → 图片全部不显示**。所以带图片的页面一律用 HTTP 服务 URL 预览，不要传文件路径。中文文件名 URL 在 http.server 下会 404，统一用英文入口 `index.html`。
+- **本地预览正确方式（重要）**：必须用「以 `dist/` 为根的本地 HTTP 服务」看图。用项目根 `serve.py` 启动线程池服务（`python serve.py`，端口 8090，ThreadingHTTPServer 多线程），访问 `http://127.0.0.1:8090/index.html`。**坑**：用 `present_files` 传本地 html 文件路径会走 WorkBuddy 静态预览面板（`127.0.0.1:53081/static-html/...`），该面板**不加载 `crops/` 等相对子目录资源 → 图片全部不显示**。所以带图片的页面一律用 HTTP 服务 URL 预览，不要传文件路径。中文文件名 URL 在 http.server 下会 404，统一用英文入口 `index.html`。⚠️ **不要用 `python -m http.server`**（单线程会间歇性假死导致裂图）；重启前先 `netstat -ano | grep :8090` 查旧进程并 `taskkill` 掉，再 `python serve.py`。
 - **多页结构（2026-07-31 重构）**：每个 OC 角色拥有独立故事页，索引页角色卡点击进入。
   - 故事页：`story-jx.html`(烬行) `story-dy.html`(度漪) `story-cb.html`(赛博恩) `story-chen.html`(谶) `story-ll.html`(铃兰) `story-swd.html`(斯沃德·麦伦) `story-tl.html`(塔拉撒里昂)
   - 兄弟线（烬行&赛博恩）内容同时存在于 `story-jx.html` 与 `story-cb.html`
