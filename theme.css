@@ -56,14 +56,15 @@
 
   /* 角色卡 */
   .roles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:0 0 30px}
-  .rc#r-pyx{grid-column:1/-1;display:flex;align-items:stretch;gap:18px;background:linear-gradient(100deg,rgba(127,180,232,.14),rgba(255,128,159,.08));border:1px solid rgba(127,180,232,.4);margin-bottom:22px}
-  .pyx-photo{flex-shrink:0;align-self:center;width:auto;height:auto;max-height:180px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.3)}
-  .pyx-text{flex:1;display:flex;flex-direction:column;justify-content:center;min-width:0}
+  .rc#r-pyx{grid-column:1/-1;display:flex;align-items:stretch;gap:24px;background:linear-gradient(100deg,rgba(127,180,232,.16),rgba(255,128,159,.10)),var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:22px;transition:.25s;backdrop-filter:blur(8px)}
+  .rc#r-pyx:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 16px 40px rgba(0,0,0,.4),0 0 18px rgba(127,180,232,.30)}
+  .pyx-photo{flex-shrink:0;align-self:center;width:auto;height:auto;max-height:180px;border-radius:12px}
+  .pyx-text{flex:1;display:flex;flex-direction:column;justify-content:flex-start;min-width:0;text-align:left}
   .rc#r-pyx .top{margin:0}
   .rc#r-pyx p{margin:8px 0 0}
   .rc#r-pyx .rel{margin-top:10px}
   .rc{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 12px;backdrop-filter:blur(8px);transition:.25s;scroll-margin-top:70px}
-  .rc:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+  .rc:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 16px 40px rgba(0,0,0,.4),0 0 18px rgba(127,180,232,.30)}
   .rc .top{display:flex;align-items:center;gap:11px;margin-bottom:9px}
   .rc .em{font-size:26px}
   .rc h3{font-size:17px;font-weight:700;color:#fff}
@@ -99,7 +100,7 @@
   .c-stage{font-size:11px;letter-spacing:.14em;color:var(--accent2);border:1px solid var(--line);padding:2px 9px;border-radius:999px;font-weight:600;white-space:nowrap}
   a.c-stage{text-decoration:none;color:var(--accent2);transition:.2s}
   a.c-stage:hover{background:rgba(127,180,232,.12);border-color:var(--accent)}
-  .c-title{font-size:17px;font-weight:700;color:#fff;letter-spacing:.01em}
+  .c-title{font-size:19px;font-weight:700;color:#fff;letter-spacing:.01em}
   .c-date{font-size:11.5px;color:var(--muted);margin-left:auto;white-space:nowrap}
   .c-body{font-size:14.5px;color:var(--soft);line-height:1.95;margin-top:10px}
   .c-body p{margin-bottom:10px}
@@ -147,9 +148,9 @@
     .c-body{font-size:14px}
     .line-head h2{font-size:19px}
     .figure-card{padding:16px 14px 14px}
-    .rc#r-pyx{flex-direction:column;align-items:center;text-align:center}
+    .rc#r-pyx{flex-direction:column;align-items:flex-start;text-align:left}
     .pyx-photo{max-height:160px;margin-bottom:6px}
-    .pyx-text{align-items:center}
+    .pyx-text{align-items:flex-start}
   }
 
 
