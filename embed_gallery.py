@@ -31,12 +31,10 @@ def make_gallery_html(prefix, gallery_page, img_dir, count):
             f'  <a href="{gallery_page}" class="photo-thumb">'
             f'<img src="{img_path}" alt="{prefix} {i}" loading="lazy" decoding="async"/></a>'
         )
-    if extra > 0:
+    if extra > 0 or count > 0:
+        # “查看全部”入口（始终展示，点击进入相册内页）
         lines.append(
-            f'  <a href="{gallery_page}" class="photo-thumb" '
-            f'style="display:flex;align-items:center;justify-content:center;'
-            f'background:var(--panel);font-size:13px;color:var(--muted)">'
-            f'+{extra}</a>'
+            f'  <a href="{gallery_page}" class="photo-more">查看全部 →</a>'
         )
     lines.append('</div>')
     return '\n'.join(lines) + '\n'
