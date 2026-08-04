@@ -215,17 +215,15 @@
   display:block; transition:opacity .2s;
 }
 .photo-gallery .photo-thumb:hover img{opacity:.88}
-/* “查看全部”入口（占满下一行，右对齐） */
+/* “查看全部”入口（占满下一行，居中，纯文字下划线） */
 .photo-gallery .photo-more{
-  grid-column:1/-1; justify-self:end; margin-top:2px;
-  display:inline-flex; align-items:center; gap:6px;
-  font-size:14px; color:var(--accent); text-decoration:none; cursor:pointer;
-  padding:6px 16px; border-radius:20px;
-  border:1px solid rgba(127,180,232,.4);
-  background:rgba(127,180,232,.08);
-  transition:background .2s, transform .2s;
+  grid-column:1/-1; justify-self:center; margin-top:8px;
+  display:inline-flex; align-items:center;
+  font-size:12px; color:var(--accent); text-decoration:underline;
+  text-underline-offset:3px; letter-spacing:.05em; cursor:pointer;
 }
-.photo-gallery .photo-more:hover{ background:rgba(127,180,232,.18); transform:translateX(3px); }
+.photo-gallery .photo-more:hover,
+.photo-gallery .photo-more:active{ color:#ffffff; }
 /* 相册内页全屏网格 */
 .gallery-page .gal-grid{
   display:grid;
