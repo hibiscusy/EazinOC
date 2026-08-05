@@ -42,6 +42,13 @@
             <p>我说有时候是蓝的，有时候是灰的，日落的时候是金的。</p>
             <p>他背对着我站了很久。他可能在想一片海的颜色。</p>
             <p><span class="q">「和我的海一样。」</span></p>
+            <div class="diary-img-grid">
+              <img src="crops/dy_diary6_01.webp" width="690" height="460" alt="度漪日记六 演出 1" loading="lazy">
+              <img src="crops/dy_diary6_02.webp" width="690" height="1035" alt="度漪日记六 演出 2" loading="lazy">
+              <img src="crops/dy_diary6_03.webp" width="690" height="1035" alt="度漪日记六 演出 3" loading="lazy">
+              <img src="crops/dy_diary6_04.webp" width="690" height="1035" alt="度漪日记六 演出 4" loading="lazy">
+              <img src="crops/dy_diary6_05.webp" width="690" height="1035" alt="度漪日记六 演出 5" loading="lazy">
+            </div>
           </div>
           <div class="c-src">原文：<a href="https://weibo.com/2882733894" target="_blank" rel="noopener">@蒲熠星 微博</a></div>
         </div>
@@ -185,5 +192,105 @@
   </footer>
 </div>
 <script src="tabs.js"></script>
+<script>
+(function(){
+  var grids=document.querySelectorAll('.diary-img-grid');
+  if(!grids.length) return;
+
+  /* ===== 灯箱：点击图片看大图 + 左右切换 ===== */
+  var lb=document.createElement('div'); lb.className='img-lightbox';
+  var im=document.createElement('img'); im.className='lb-img';
+  var prev=document.createElement('button'); prev.className='lb-nav lb-prev'; prev.setAttribute('aria-label','上一张'); prev.innerHTML='&#10094;';
+  var next=document.createElement('button'); next.className='lb-nav lb-next'; next.setAttribute('aria-label','下一张'); next.innerHTML='&#10095;';
+  var cnt=document.createElement('div'); cnt.className='lb-count';
+  var closeBtn=document.createElement('button'); closeBtn.className='lb-close'; closeBtn.setAttribute('aria-label','关闭'); closeBtn.innerHTML='&times;';
+  lb.appendChild(im); lb.appendChild(prev); lb.appendChild(next); lb.appendChild(cnt); lb.appendChild(closeBtn);
+  document.body.appendChild(lb);
+
+  var curGrid=null, curIdx=-1, swiped=false;
+  function show(){
+    if(!curGrid) return;
+    var list=curGrid._imgs;
+    if(curIdx<0||curIdx>=list.length) return;
+    var img=list[curIdx];
+    im.src=img.currentSrc||img.src; im.alt=img.alt;
+    cnt.textContent=(curIdx+1)+' / '+list.length;
+    prev.classList.toggle('disabled', curIdx===0);
+    next.classList.toggle('disabled', curIdx===list.length-1);
+  }
+  function openLB(grid,imgEl){
+    curGrid=grid;
+    var list=grid._imgs;
+    curIdx=list.indexOf(imgEl);
+    if(curIdx<0) curIdx=0;
+    lb.classList.add('open');
+    show();
+  }
+  function go(d){
+    if(!curGrid) return;
+    var list=curGrid._imgs;
+    var ni=curIdx+d;
+    if(ni<0||ni>=list.length) return;
+    curIdx=ni; show();
+  }
+  function closeLB(){ lb.classList.remove('open'); curGrid=null; curIdx=-1; }
+  grids.forEach(function(grid){
+    grid.addEventListener('click',function(e){
+      var t=e.target;
+      if(t&&t.tagName==='IMG'){ openLB(grid,t); }
+    });
+  });
+  lb.addEventListener('click',function(e){
+    if(swiped){ swiped=false; return; }
+    if(e.target===lb||e.target===im||e.target===closeBtn){ closeLB(); }
+  });
+  prev.addEventListener('click',function(e){ e.stopPropagation(); go(-1); });
+  next.addEventListener('click',function(e){ e.stopPropagation(); go(1); });
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape'){ closeLB(); }
+    else if(e.key==='ArrowLeft'){ go(-1); }
+    else if(e.key==='ArrowRight'){ go(1); }
+  });
+  /* 触摸滑动切换 */
+  var sx=0, sy=0, tracking=false;
+  lb.addEventListener('touchstart',function(e){ var t=e.changedTouches[0]; sx=t.clientX; sy=t.clientY; tracking=true; swiped=false; },{passive:true});
+  lb.addEventListener('touchend',function(e){
+    if(!tracking) return; tracking=false;
+    var t=e.changedTouches[0]; var dx=t.clientX-sx, dy=t.clientY-sy;
+    if(Math.abs(dx)>40 && Math.abs(dx)>Math.abs(dy)){ swiped=true; go(dx<0?1:-1); setTimeout(function(){swiped=false;},350); }
+  },{passive:true});
+
+  /* ===== 真·瀑布流：最短列优先填充 ===== */
+  function colCount(){
+    var w=window.innerWidth;
+    if(w<=560) return 2;
+    if(w<=900) return 3;
+    return 4;
+  }
+  function build(grid){
+    var imgs=grid._imgs||(grid._imgs=Array.prototype.slice.call(grid.querySelectorAll('img')));
+    if(!imgs.length) return;
+    var n=colCount();
+    grid.classList.add('masonry');
+    grid.innerHTML='';
+    var cols=[];
+    for(var i=0;i<n;i++){ var c=document.createElement('div'); c.className='mg-col'; grid.appendChild(c); cols.push({el:c,h:0}); }
+    imgs.forEach(function(img){
+      var min=cols[0];
+      for(var i=1;i<cols.length;i++){ if(cols[i].h<min.h) min=cols[i]; }
+      min.el.appendChild(img);
+      var w=parseFloat(img.getAttribute('width'))||1;
+      var h=parseFloat(img.getAttribute('height'))||1;
+      min.h+=h/w;
+    });
+  }
+  grids.forEach(build);
+  var timer=null;
+  window.addEventListener('resize',function(){
+    clearTimeout(timer); timer=setTimeout(function(){ grids.forEach(build); },200);
+  });
+})();
+</script>
 </body>
 </html>
