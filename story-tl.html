@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>塔拉撒里昂 的故事 · 蒲熠星 OC 宇宙</title>
-<link rel="stylesheet" href="theme.css?v=20260805m">
+<link rel="stylesheet" href="theme.css?v=20260805n">
 </head>
 <body>
 <div class="stars"></div>
@@ -228,17 +228,69 @@
     var grids=document.querySelectorAll('.diary-img-grid');
     if(!grids.length) return;
 
-    /* ===== 灯箱：点击图片看大图 ===== */
+    /* ===== 灯箱：点击图片看大图 + 左右切换 ===== */
     var lb=document.createElement('div'); lb.className='img-lightbox';
-    var im=document.createElement('img'); lb.appendChild(im);
+    var im=document.createElement('img'); im.className='lb-img';
+    var prev=document.createElement('button'); prev.className='lb-nav lb-prev'; prev.setAttribute('aria-label','上一张'); prev.innerHTML='&#10094;';
+    var next=document.createElement('button'); next.className='lb-nav lb-next'; next.setAttribute('aria-label','下一张'); next.innerHTML='&#10095;';
+    var cnt=document.createElement('div'); cnt.className='lb-count';
+    var closeBtn=document.createElement('button'); closeBtn.className='lb-close'; closeBtn.setAttribute('aria-label','关闭'); closeBtn.innerHTML='&times;';
+    lb.appendChild(im); lb.appendChild(prev); lb.appendChild(next); lb.appendChild(cnt); lb.appendChild(closeBtn);
     document.body.appendChild(lb);
+
+    var curGrid=null, curIdx=-1, swiped=false;
+    function show(){
+      if(!curGrid) return;
+      var list=curGrid._imgs;
+      if(curIdx<0||curIdx>=list.length) return;
+      var img=list[curIdx];
+      im.src=img.currentSrc||img.src; im.alt=img.alt;
+      cnt.textContent=(curIdx+1)+' / '+list.length;
+      prev.classList.toggle('disabled', curIdx===0);
+      next.classList.toggle('disabled', curIdx===list.length-1);
+    }
+    function openLB(grid,imgEl){
+      curGrid=grid;
+      var list=grid._imgs;
+      curIdx=list.indexOf(imgEl);
+      if(curIdx<0) curIdx=0;
+      lb.classList.add('open');
+      show();
+    }
+    function go(d){
+      if(!curGrid) return;
+      var list=curGrid._imgs;
+      var ni=curIdx+d;
+      if(ni<0||ni>=list.length) return; /* 首/末张继续滑动无反应 */
+      curIdx=ni; show();
+    }
+    function closeLB(){ lb.classList.remove('open'); curGrid=null; curIdx=-1; }
     grids.forEach(function(grid){
       grid.addEventListener('click',function(e){
         var t=e.target;
-        if(t&&t.tagName==='IMG'){ im.src=t.currentSrc||t.src; im.alt=t.alt; lb.classList.add('open'); }
+        if(t&&t.tagName==='IMG'){ openLB(grid,t); }
       });
     });
-    lb.addEventListener('click',function(){ lb.classList.remove('open'); });
+    lb.addEventListener('click',function(e){
+      if(swiped){ swiped=false; return; }
+      if(e.target===lb||e.target===im||e.target===closeBtn){ closeLB(); }
+    });
+    prev.addEventListener('click',function(e){ e.stopPropagation(); go(-1); });
+    next.addEventListener('click',function(e){ e.stopPropagation(); go(1); });
+    document.addEventListener('keydown',function(e){
+      if(!lb.classList.contains('open')) return;
+      if(e.key==='Escape'){ closeLB(); }
+      else if(e.key==='ArrowLeft'){ go(-1); }
+      else if(e.key==='ArrowRight'){ go(1); }
+    });
+    /* 触摸滑动切换（边界无反应） */
+    var sx=0, sy=0, tracking=false;
+    lb.addEventListener('touchstart',function(e){ var t=e.changedTouches[0]; sx=t.clientX; sy=t.clientY; tracking=true; swiped=false; },{passive:true});
+    lb.addEventListener('touchend',function(e){
+      if(!tracking) return; tracking=false;
+      var t=e.changedTouches[0]; var dx=t.clientX-sx, dy=t.clientY-sy;
+      if(Math.abs(dx)>40 && Math.abs(dx)>Math.abs(dy)){ swiped=true; go(dx<0?1:-1); setTimeout(function(){swiped=false;},350); }
+    },{passive:true});
 
     /* ===== 真·瀑布流：最短列优先填充，无空洞、等间距、保持左→右顺序 ===== */
     function colCount(){
@@ -248,7 +300,7 @@
       return 4;
     }
     function build(grid){
-      var imgs=Array.prototype.slice.call(grid.querySelectorAll('img'));
+      var imgs=grid._imgs||(grid._imgs=Array.prototype.slice.call(grid.querySelectorAll('img')));
       if(!imgs.length) return;
       var n=colCount();
       grid.classList.add('masonry');
