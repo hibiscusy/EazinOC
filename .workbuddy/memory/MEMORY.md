@@ -26,6 +26,8 @@
 - 远程 `origin` = `git@github.com:hibiscusy/EazinOC.git`（SSH 免密，本机 `~/.ssh/id_ed25519`）。
 - **推送节奏**：用户要求「改完前不推送，累积本地 commit，等用户说『改完了/推送』再一次性 `git push`」。即平时只 `git commit`，不要自动 push；记忆/笔记改动也一并本地提交、暂存不推。
 - 旧部署(CloudStudio 沙箱)为旧版，定稿后需重新 deploy 才同步。
+- ⚠️ **本环境 git fetch/pull 被 sandbox 静默 kill**：`git ls-remote` 能成功（仅取 ref，数据小），但 `git fetch`/`git pull` 传输 pack 数据时整个进程被 killed（连后续 `echo` 都不执行、无报错）。修复：对含网络传输的 git 命令加 `dangerouslyDisableSandbox: true`（工具会请求授权）。纯本地 git 操作（`reset`/`commit`/`add`）不受影响，无需关 sandbox。
+- **`.git` 丢失恢复法**：若 `.git` 意外消失但工作树文件完整（且远端有完整历史），执行 `git init -b main` → `git remote add origin git@github.com:hibiscusy/EazinOC.git` → `git fetch --depth 1 origin main`（需关 sandbox）→ `git reset --hard origin/main` 即可恢复，工作树=fetch 到的远端最新提交。恢复前可 `cp -r` 整目录到同级 `.SAFEBACKUP` 作保险。
 
 ## 内容排序约定
 - **时间倒序（用户明确要求，2026-08-04）**：所有故事页内的内容卡片（日常 tab、日记 tab，以及未来新增的同类内容块）一律按「发布时间」**倒序**排列——**最新的在最前面，最旧的在最后**。新增内容时直接插到对应 tab 顶部；同日内容按逻辑先后，新发布的在上。塔拉撒里昂日记tab已据此把（二）08.04 置于（一）08.01 之前。
