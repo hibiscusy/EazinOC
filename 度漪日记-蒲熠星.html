@@ -340,5 +340,57 @@
   </footer>
 
 </div>
+<style>
+.back-to-top{
+  position:fixed; right:22px; bottom:26px; width:46px; height:46px;
+  border:none; border-radius:50%;
+  background:linear-gradient(135deg, #7fb4e8, #c9a86a);
+  color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 6px 22px rgba(0,0,0,.38);
+  opacity:0; visibility:hidden; transform:translateY(14px) scale(.92);
+  transition:opacity .26s ease, transform .26s ease, visibility .26s, filter .2s;
+  z-index:60;
+}
+.back-to-top svg{ display:block; }
+.back-to-top.show{ opacity:1; visibility:visible; transform:translateY(0) scale(1); }
+.back-to-top:hover{ filter:brightness(1.12); transform:translateY(-2px) scale(1.05); }
+.back-to-top:active{ transform:translateY(0) scale(.95); }
+.back-to-top:focus-visible{ outline:2px solid #c9a86a; outline-offset:3px; }
+@media (prefers-reduced-motion: reduce){
+  .back-to-top{ transition:opacity .15s ease; transform:none; }
+  .back-to-top.show{ transform:none; }
+  .back-to-top:hover{ transform:none; }
+}
+</style>
+<script>
+/* ===== 回到顶部按钮：下滑显示，顶部隐藏 ===== */
+(function(){
+  var btn=document.createElement('button');
+  btn.className='back-to-top';
+  btn.setAttribute('aria-label','回到顶部');
+  btn.setAttribute('title','回到顶部');
+  btn.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4l-8 8h5v8h6v-8h5z"/></svg>';
+  document.body.appendChild(btn);
+
+  var TH=Math.max(300, Math.round(window.innerHeight*0.5));
+  var ticking=false;
+  function update(){
+    if(window.pageYOffset>TH){ btn.classList.add('show'); }
+    else{ btn.classList.remove('show'); }
+    ticking=false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking=true; window.requestAnimationFrame(update); }
+  }, {passive:true});
+  window.addEventListener('resize', function(){ TH=Math.max(300, Math.round(window.innerHeight*0.5)); update(); }, {passive:true});
+  update();
+
+  btn.addEventListener('click', function(){
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0, behavior: reduce?'auto':'smooth'});
+  });
+})();
+</script>
+
 </body>
 </html>
