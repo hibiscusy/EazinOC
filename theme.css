@@ -287,3 +287,40 @@
 }
 .gallery-page .gal-lightbox .gal-close:hover{background:rgba(255,255,255,.12)}
 .gal-toggle:checked ~ .gal-lightbox{display:flex}
+
+/* ===== 回到顶部按钮（下滑显示 / 顶部隐藏） ===== */
+.back-to-top{
+  position:fixed;
+  right:22px;
+  bottom:26px;
+  width:46px;
+  height:46px;
+  border:none;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 22px rgba(0,0,0,.38);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(14px) scale(.92);
+  transition:opacity .26s ease, transform .26s ease, visibility .26s, filter .2s;
+  z-index:60;
+}
+.back-to-top svg{ display:block; }
+.back-to-top.show{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0) scale(1);
+}
+.back-to-top:hover{ filter:brightness(1.12); transform:translateY(-2px) scale(1.05); }
+.back-to-top:active{ transform:translateY(0) scale(.95); }
+.back-to-top:focus-visible{ outline:2px solid var(--accent2); outline-offset:3px; }
+@media (prefers-reduced-motion: reduce){
+  .back-to-top{ transition:opacity .15s ease; transform:none; }
+  .back-to-top.show{ transform:none; }
+  .back-to-top:hover{ transform:none; }
+}
