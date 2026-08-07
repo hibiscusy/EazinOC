@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>小说家 · 蒲熠星 | 银河系旅行攻略</title>
-<link rel="stylesheet" href="theme.css?v=20260806c">
+<link rel="stylesheet" href="theme.css?v=20260805m">
 <style>
 /* 作者页专属：仅新闻配图网格（其余全部复用 theme.css，与星际猎手内页一致） */
 .news-photos {
@@ -113,11 +113,11 @@
           <div class="c-body">
             <div class="news-photos">
               <figure>
-                <img src="crops/chinadaily-pyx-photo.png" alt="蒲熠星 中国日报专访写真" decoding="async" fetchpriority="high">
+                <img src="crops/chinadaily-pyx-photo.png" alt="蒲熠星 中国日报专访写真" loading="lazy" decoding="async"/>
                 <figcaption>蒲熠星 · 中国日报专访写真</figcaption>
               </figure>
               <figure>
-                <img src="crops/chinadaily-newspaper.jpg" alt="中国日报报纸版面" loading="lazy" decoding="async">
+                <img src="crops/chinadaily-newspaper.jpg" alt="中国日报报纸版面" loading="lazy" decoding="async"/>
                 <figcaption>China Daily 报纸版面（VIEWS 栏目）</figcaption>
               </figure>
             </div>
@@ -134,35 +134,5 @@
 <footer style="padding:48px 0 80px;text-align:center;color:var(--muted);font-size:12.5px;line-height:2">
   <p>返回：<a href="OC宇宙-人物时间线-蒲熠星.html">OC 宇宙主页</a></p>
 </footer>
-<script>
-/* ===== 回到顶部按钮：下滑显示，顶部隐藏 ===== */
-(function(){
-  var btn=document.createElement('button');
-  btn.className='back-to-top';
-  btn.setAttribute('aria-label','回到顶部');
-  btn.setAttribute('title','回到顶部');
-  btn.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4l-8 8h5v8h6v-8h5z"/></svg>';
-  document.body.appendChild(btn);
-
-  var TH=Math.max(300, Math.round(window.innerHeight*0.5));
-  var ticking=false;
-  function update(){
-    if(window.pageYOffset>TH){ btn.classList.add('show'); }
-    else{ btn.classList.remove('show'); }
-    ticking=false;
-  }
-  window.addEventListener('scroll', function(){
-    if(!ticking){ ticking=true; window.requestAnimationFrame(update); }
-  }, {passive:true});
-  window.addEventListener('resize', function(){ TH=Math.max(300, Math.round(window.innerHeight*0.5)); update(); }, {passive:true});
-  update();
-
-  btn.addEventListener('click', function(){
-    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    window.scrollTo({top:0, behavior: reduce?'auto':'smooth'});
-  });
-})();
-</script>
-
 </body>
 </html>

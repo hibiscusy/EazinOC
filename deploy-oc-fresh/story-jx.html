@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>烬行 的故事 · 蒲熠星 OC 宇宙</title>
-<link rel="stylesheet" href="theme.css?v=20260806c">
+<link rel="stylesheet" href="theme.css?v=20260805m">
 </head>
 <body>
 <div class="stars"></div>
@@ -21,11 +21,29 @@
     </div>
     <p class="st-intro">弓箭手哥哥 × 失联的义体人弟弟</p>
     <p class="st-desc">贯穿宇宙最深的羁绊——血脉相连的兄弟。从童年裹被子的温暖，到成年后星际流浪、生死未卜的漫长寻找。</p>
-    <img src="crops/anime_1.webp?v=2" srcset="crops/anime_1.webp?v=2 1600w, crops/anime_1_800.webp?v=2 800w" sizes="(max-width: 768px) 100vw, 800px" alt="烬行" class="st-img" width="1037" height="375" decoding="async" fetchpriority="high">
+    <img src="crops/anime_1.webp?v=2" alt="烬行" class="st-img" width="1037" height="375" loading="lazy" decoding="async">
   </div>
 <div class="photo-gallery" style="display:none"></div>
 <section class="line" id="line-jx">
     <div class="tl">
+
+      <div class="node">
+        <div class="card">
+          <div class="c-head"><span class="c-stage">现在·寻找</span><span class="c-title">一封不知道往哪寄的信</span><span class="c-date">发布 2026.07.16</span></div>
+          <div class="c-body">
+            <p>烬行以第一人称写给失联弟弟赛博恩的星际家书（蒲熠星注明"这是烬行写给他弟弟赛博恩的信，和蒲熠星有什么关系"）：</p>
+            <p>弟：<br>你在哪儿，我不知道。这封信没地址，寄不出去。但想跟你说话。就写下来吧。</p>
+            <p>你那边什么季节。我这边在下雨。雨水是酸的，腐蚀性，不适合人类淋。但我还是在门口站了一会儿。你小时候最爱淋雨，妈每次都追在后面骂。我今天也淋了，没人骂我。</p>
+            <p>我攒钱搞了艘飞船，把它改造成了酒吧。大厅展示柜留了一个位置，打算摆你做的手工——飞船、星星、小苹果、弓箭，都还在我箱子里，没丢，等你回来自己摆吧。</p>
+            <p>我换了很多地方，每到一个新的星系，我都会去登记处查你的名字。查不到。可能是你改名了，可能你不在这个星系，可能你出事了。我每一种可能都想过。想到第三种的时候就不往下想了。</p>
+            <p>我还在用弓。绷紧，然后松开，拉弓的感觉会让我想起小时候你牵我的手。我每天练弓，星际排名打得还不错。上次差点拿了天狼星赛区冠军。差点。如果你在，你肯定在旁边说，哥你真菜。</p>
+            <p>这些年我遇到过很多人。遇到坏人的时候我就想，如果你还活着，是不是也会被他们欺负。然后我下手会特别狠。</p>
+            <p>弟，如果你收到这封信，算了，你收不到。这封信我写完就压在枕头底下，和那颗苹果籽一起。那颗籽是院子里那棵苹果树的，你五岁种的，记得吗。</p>
+            <p>如果你看到这封信，就回家。不是回地球。回家。地球已经住不了人了。<br>哥</p>
+          </div>
+          <div class="c-src">原文：<a href="https://weibo.com/2882733894" target="_blank" rel="noopener">@蒲熠星 微博</a></div>
+        </div>
+      </div>
 
       <div class="node">
         <div class="card">
@@ -68,35 +86,5 @@
     <p style="margin-top:10px;color:var(--muted);font-size:11.5px">返回：<a href="OC宇宙-人物时间线-蒲熠星.html">角色宇宙主页</a></p>
   </footer>
 </div>
-<script>
-/* ===== 回到顶部按钮：下滑显示，顶部隐藏 ===== */
-(function(){
-  var btn=document.createElement('button');
-  btn.className='back-to-top';
-  btn.setAttribute('aria-label','回到顶部');
-  btn.setAttribute('title','回到顶部');
-  btn.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4l-8 8h5v8h6v-8h5z"/></svg>';
-  document.body.appendChild(btn);
-
-  var TH=Math.max(300, Math.round(window.innerHeight*0.5));
-  var ticking=false;
-  function update(){
-    if(window.pageYOffset>TH){ btn.classList.add('show'); }
-    else{ btn.classList.remove('show'); }
-    ticking=false;
-  }
-  window.addEventListener('scroll', function(){
-    if(!ticking){ ticking=true; window.requestAnimationFrame(update); }
-  }, {passive:true});
-  window.addEventListener('resize', function(){ TH=Math.max(300, Math.round(window.innerHeight*0.5)); update(); }, {passive:true});
-  update();
-
-  btn.addEventListener('click', function(){
-    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    window.scrollTo({top:0, behavior: reduce?'auto':'smooth'});
-  });
-})();
-</script>
-
 </body>
 </html>

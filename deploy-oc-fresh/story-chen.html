@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>谶 的故事 · 蒲熠星 OC 宇宙</title>
-<link rel="stylesheet" href="theme.css?v=20260806c">
+<link rel="stylesheet" href="theme.css?v=20260805m">
 </head>
 <body>
 <div class="stars"></div>
@@ -21,7 +21,7 @@
     </div>
     <p class="st-intro">红发剑灵·认妈认爸的小崽</p>
     <p class="st-desc">一把本就"活着"的魔剑，被触发显现为人形。他拜度漪为师学"当大侠"，苏醒后认铃兰为"妈妈"、赛博恩为"爸爸"，是宇宙里最萌也最厉害的存在。</p>
-    <img src="crops/anime_3.webp?v=2" srcset="crops/anime_3.webp?v=2 1600w, crops/anime_3_800.webp?v=2 800w" sizes="(max-width: 768px) 100vw, 800px" alt="谶" class="st-img" width="1037" height="383" decoding="async" fetchpriority="high">
+    <img src="crops/anime_3.webp?v=2" alt="谶" class="st-img" width="1037" height="383" loading="lazy" decoding="async">
   </div>
 <div class="photo-gallery" style="display:none"></div>
 <section class="line" id="line-chen">
@@ -156,35 +156,5 @@
   </footer>
 </div>
 <script src="tabs.js"></script>
-<script>
-/* ===== 回到顶部按钮：下滑显示，顶部隐藏 ===== */
-(function(){
-  var btn=document.createElement('button');
-  btn.className='back-to-top';
-  btn.setAttribute('aria-label','回到顶部');
-  btn.setAttribute('title','回到顶部');
-  btn.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4l-8 8h5v8h6v-8h5z"/></svg>';
-  document.body.appendChild(btn);
-
-  var TH=Math.max(300, Math.round(window.innerHeight*0.5));
-  var ticking=false;
-  function update(){
-    if(window.pageYOffset>TH){ btn.classList.add('show'); }
-    else{ btn.classList.remove('show'); }
-    ticking=false;
-  }
-  window.addEventListener('scroll', function(){
-    if(!ticking){ ticking=true; window.requestAnimationFrame(update); }
-  }, {passive:true});
-  window.addEventListener('resize', function(){ TH=Math.max(300, Math.round(window.innerHeight*0.5)); update(); }, {passive:true});
-  update();
-
-  btn.addEventListener('click', function(){
-    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    window.scrollTo({top:0, behavior: reduce?'auto':'smooth'});
-  });
-})();
-</script>
-
 </body>
 </html>
