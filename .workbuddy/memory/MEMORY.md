@@ -26,6 +26,9 @@
 - 远程 `origin` = `git@github.com:hibiscusy/EazinOC.git`（SSH 免密，本机 `~/.ssh/id_ed25519`）。
 - **推送节奏**：用户要求「改完前不推送，累积本地 commit，等用户说『改完了/推送』再一次性 `git push`」。即平时只 `git commit`，不要自动 push；记忆/笔记改动也一并本地提交、暂存不推。
 - 旧部署(CloudStudio 沙箱)为旧版，定稿后需重新 deploy 才同步。
+- **⚠️ 永久站点 `hibiscusy.github.io/EazinOC/` 由 GitHub Pages 构建，源 = `gh-pages` 分支（不是 `main`）**。所以「推 main」不会自动更新永久站点——这就是 2026-08-13 用户发现永久站点没更新的根因。要上线永久站点，必须把站点文件同步到 `gh-pages` 分支（工作流见下）。**推荐一步到位**：在仓库 Settings→Pages 把 Source 改成 `main` 分支 / root，之后每次 `git push` 自动上线永久站点（改源后给 main 加 `.nojekyll` 以禁用 Jekyll 处理中文文件名/下划线文件）。
+- **同步 gh-pages 的安全工作流（不动主工作树）**：`git worktree add -b gh-pages-build <临时目录> main` → 临时目录内 `git rm -rf .` → `git checkout main -- <站点文件：index.html / OC宇宙-人物时间线-蒲熠星.html / author-pyx.html / theme.css / tabs.js / story-*.html / gallery-*.html / crops>` → 建 `.nojekyll` → `git commit` → `git push origin gh-pages-build:refs/heads/gh-pages --force` → 回主目录 `git worktree remove <临时目录> --force` + `git branch -D gh-pages-build`。已验证：`8bc3c69` 上线成功（2026-08-13）。
+- **本地 `origin/main` 跟踪引用会过期**（fetch 被 sandbox kill 无法刷新），表现为 `git status` 误报「ahead 1」。修正：`git update-ref refs/remotes/origin/main <真实SHA>`（用 `git ls-remote origin` 取真实 SHA；实测 origin/main 已=本地 HEAD，push 并未丢失）。
 - ⚠️ **本环境 git fetch/pull 被 sandbox 静默 kill**：`git ls-remote` 能成功（仅取 ref，数据小），但 `git fetch`/`git pull` 传输 pack 数据时整个进程被 killed（连后续 `echo` 都不执行、无报错）。修复：对含网络传输的 git 命令加 `dangerouslyDisableSandbox: true`（工具会请求授权）。纯本地 git 操作（`reset`/`commit`/`add`）不受影响，无需关 sandbox。
 - **`.git` 丢失恢复法**：若 `.git` 意外消失但工作树文件完整（且远端有完整历史），执行 `git init -b main` → `git remote add origin git@github.com:hibiscusy/EazinOC.git` → `git fetch --depth 1 origin main`（需关 sandbox）→ `git reset --hard origin/main` 即可恢复，工作树=fetch 到的远端最新提交。恢复前可 `cp -r` 整目录到同级 `.SAFEBACKUP` 作保险。
 
