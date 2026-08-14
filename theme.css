@@ -188,7 +188,7 @@
   .story-hero .en{font-size:14.5px;color:var(--muted);letter-spacing:.1em;font-weight:600;margin-top:3px;display:block}
   .story-hero .st-intro{font-size:14.5px;color:var(--muted);margin:18px 0 0;letter-spacing:.03em;line-height:1.5}
   .story-hero .st-desc{font-size:14.5px;color:var(--soft);margin:10px auto 0;line-height:1.85;max-width:720px}
-  .story-hero .st-img{display:block;width:auto;height:auto;max-width:100%;margin:20px auto 0;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .story-hero .st-img{display:block;width:100%;height:auto;max-width:100%;margin:20px auto 0;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 
 
 /* 角色页内 日记 / 日常 切换菜单 */
