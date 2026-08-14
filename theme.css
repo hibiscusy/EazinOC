@@ -94,7 +94,11 @@
   .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent2),transparent)}
   .node{position:relative;margin-bottom:22px}
   .node::before{content:"";position:absolute;left:-24px;top:18px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);box-shadow:0 0 10px var(--glow);box-sizing:border-box}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:20px 22px;backdrop-filter:blur(8px);transition:.2s}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:20px 22px;backdrop-filter:blur(8px);transition:.2s;
+    /* 性能：跳过视口外的渲染，仅 100% + Chrome 85+/Safari 18+ */
+    content-visibility:auto;
+    contain-intrinsic-size:auto 420px;
+  }
   .card:hover{border-color:rgba(127,180,232,.5)}
   .c-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
   .c-stage{font-size:11px;letter-spacing:.14em;color:var(--accent2);border:1px solid var(--line);padding:2px 9px;border-radius:999px;font-weight:600;white-space:nowrap}
