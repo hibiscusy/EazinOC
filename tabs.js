@@ -16,9 +16,7 @@
       tabs.querySelectorAll('.tab-btn').forEach(function (b) {
         var on = b === btn;
         b.classList.toggle('active', on);
-        if (b.hasAttribute('aria-selected')) {
-          b.setAttribute('aria-selected', on ? 'true' : 'false');
-        }
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
       });
       var scope = tabs.parentElement;
       scope.querySelectorAll('.tab-panel').forEach(function (p) {

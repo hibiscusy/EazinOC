@@ -4,65 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>度漪日记 · 蒲熠星 | 银河系旅行攻略</title>
+<meta name="description" content="度漪日记 · 蒲熠星 | 银河系旅行攻略 — 度漪的拍卖行日记与酒吧日常。">
+<meta property="og:title" content="度漪日记 · 蒲熠星 | 银河系旅行攻略">
+<meta property="og:description" content="度漪日记 · 蒲熠星 | 银河系旅行攻略 — 度漪的拍卖行日记与酒吧日常。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hibiscusy.github.io/EazinOC/度漪日记-蒲熠星.html">
+<meta property="og:image" content="https://hibiscusy.github.io/EazinOC/OC角色全员图-演唱会造型.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ctext%20y%3D%2214%22%20font-size%3D%2214%22%3E%E2%9C%A6%3C%2Ftext%3E%3C%2Fsvg%3E">
+
+<link rel="stylesheet" href="theme.css?v=20260814a">
 <style>
-  :root{
-    --bg:#0a0e1a;
-    --bg2:#131a2e;
-    --panel:rgba(22,28,48,0.72);
-    --panel2:rgba(30,38,64,0.55);
-    --line:rgba(117,170,220,0.22);
-    --text:#e8edf7;
-    --soft:#a9b6cf;
-    --muted:#6b7794;
-    --accent:#7fb4e8;
-    --accent2:#c9a86a;
-    --glow:#5ea3ff;
-    --red:#e07a7a;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased}
-  body{
-    background:
-      radial-gradient(1200px 700px at 80% -10%, rgba(94,163,255,0.12), transparent 60%),
-      radial-gradient(900px 600px at 10% 20%, rgba(201,168,106,0.08), transparent 55%),
-      radial-gradient(800px 800px at 50% 110%, rgba(94,163,255,0.10), transparent 60%),
-      linear-gradient(180deg,#070b16 0%, #0a0e1a 40%, #0c1020 100%);
-    min-height:100vh;
-    overflow-x:hidden;
-  }
-  /* 星空 */
-  .stars,.stars2{position:fixed;inset:0;pointer-events:none;z-index:0}
-  .stars{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221000%22%20height%3D%22400%22%20viewBox%3D%220%200%201000%20400%22%3E%3Cpath%20d%3D%22M456.6%20310.4%20L458.3%20314.9%20L463.1%20315.1%20L459.3%20318.0%20L460.6%20322.6%20L456.6%20320.0%20L452.7%20322.6%20L453.9%20318.0%20L450.2%20315.1%20L455.0%20314.9%20Z%22%20fill%3D%22%23ffe3a0%22%20fill-opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M134.7%20128.8%20L136.3%20133.0%20L140.8%20133.2%20L137.3%20135.9%20L138.5%20140.3%20L134.7%20137.8%20L131.0%20140.3%20L132.2%20135.9%20L128.7%20133.2%20L133.1%20133.0%20Z%22%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M585.9%20157.9%20L587.8%20163.1%20L593.3%20163.3%20L589.0%20166.7%20L590.5%20172.1%20L585.9%20169.0%20L581.3%20172.1%20L582.8%20166.7%20L578.5%20163.3%20L584.0%20163.1%20Z%22%20fill%3D%22%23bcd4ff%22%20fill-opacity%3D%221.0%22%2F%3E%3Cpath%20d%3D%22M63.5%20196.6%20L66.6%20205.0%20L75.6%20205.4%20L68.6%20211.0%20L71.0%20219.7%20L63.5%20214.7%20L56.0%20219.7%20L58.4%20211.0%20L51.4%20205.4%20L60.4%20205.0%20Z%22%20fill%3D%22%23ffd98f%22%20fill-opacity%3D%221.0%22%2F%3E%3C%2Fsvg%3E");background-size:500px 200px;background-repeat:repeat;animation:drift 260s linear infinite;opacity:1}
-  .stars2{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221000%22%20height%3D%22400%22%20viewBox%3D%220%200%201000%20400%22%3E%3Cpath%20d%3D%22M601.8%20173.7%20L604.0%20179.6%20L610.2%20179.8%20L605.3%20183.7%20L607.0%20189.7%20L601.8%20186.3%20L596.6%20189.7%20L598.3%20183.7%20L593.4%20179.8%20L599.6%20179.6%20Z%22%20fill%3D%22%23ffffff%22%20fill-opacity%3D%221.0%22%2F%3E%3Cpath%20d%3D%22M258.6%20344.4%20L260.4%20349.2%20L265.5%20349.4%20L261.5%20352.6%20L262.8%20357.5%20L258.6%20354.7%20L254.3%20357.5%20L255.7%20352.6%20L251.6%20349.4%20L256.8%20349.2%20Z%22%20fill%3D%22%23bcd4ff%22%20fill-opacity%3D%221.0%22%2F%3E%3Cpath%20d%3D%22M709.8%20167.4%20L712.2%20173.7%20L718.9%20174.0%20L713.6%20178.1%20L715.4%20184.6%20L709.8%20180.9%20L704.2%20184.6%20L706.0%20178.1%20L700.7%20174.0%20L707.5%20173.7%20Z%22%20fill%3D%22%23ffcf5c%22%20fill-opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M329.6%2088.3%20L331.9%2094.6%20L338.6%2094.8%20L333.4%2099.0%20L335.1%20105.3%20L329.6%20101.7%20L324.1%20105.3%20L325.9%2099.0%20L320.7%2094.8%20L327.3%2094.6%20Z%22%20fill%3D%22%23bcd4ff%22%20fill-opacity%3D%220.5%22%2F%3E%3C%2Fsvg%3E");background-size:500px 200px;background-repeat:repeat;animation:drift 260s linear infinite,twinkle 8s ease-in-out infinite alternate;opacity:1}
-  @keyframes drift{from{background-position:0 0}to{background-position:1000px 400px}}
-  @keyframes twinkle{0%{opacity:.82}100%{opacity:1}}
-
-  .wrap{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:0 22px}
-
-  /* 头部 */
-  header.hero{padding:90px 0 40px;text-align:center}
-  .badge{display:inline-block;font-size:12px;letter-spacing:.3em;color:var(--accent);border:1px solid var(--line);padding:6px 16px;border-radius:999px;background:rgba(94,163,255,.06);backdrop-filter:blur(6px)}
-  h1.title{font-size:clamp(48px,8vw,86px);font-weight:800;letter-spacing:.08em;margin:22px 0 6px;
-    background:linear-gradient(135deg,#fff 0%, #bfe0ff 40%, #7fb4e8 70%, #c9a86a 100%);
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-    text-shadow:0 0 60px rgba(94,163,255,.25)}
-  .sub{color:var(--soft);font-size:15px;letter-spacing:.18em}
-  .author{margin-top:18px;color:var(--accent2);font-size:14px;letter-spacing:.12em}
-  .author b{color:var(--text);font-weight:600}
-  .meta-line{margin-top:14px;color:var(--muted);font-size:12.5px}
-
-  /* 背景卡 */
-  .intro{margin:46px 0 10px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px 32px;backdrop-filter:blur(10px);box-shadow:0 20px 60px rgba(0,0,0,.35)}
-  .intro h2{font-size:13px;letter-spacing:.25em;color:var(--accent);margin-bottom:14px;font-weight:600}
-  .intro p{color:var(--soft);font-size:15px;margin-bottom:12px}
-  .intro p:last-child{margin-bottom:0}
+  /* 度漪日记页专属样式 */
+  :root{--red:#e07a7a}
+  .wrap{max-width:860px}
+  header.hero{padding:90px 0 40px}
+  .badge{backdrop-filter:blur(6px)}
+  h1.title{font-size:clamp(48px,8vw,86px);letter-spacing:.08em;margin:22px 0 6px;text-shadow:0 0 60px rgba(94,163,255,.25)}
+  .sub{font-size:15px;letter-spacing:.18em}
+  .author{margin-top:18px;font-size:14px;letter-spacing:.12em}
+  .author b{font-weight:600}
+  .meta-line{margin-top:14px;font-size:12.5px}
+  .intro{margin:46px 0 10px;padding:30px 32px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  .intro h2{letter-spacing:.25em;margin-bottom:14px;font-weight:600}
+  .intro p{font-size:15px;margin-bottom:12px}
   .roles{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
   .role{display:flex;align-items:center;gap:8px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:8px 14px;font-size:13.5px}
   .role .em{font-size:18px}
   .role b{color:var(--text)}
   .role span{color:var(--muted)}
-
-  /* 时间线 */
   .timeline{display:flex;gap:0;justify-content:space-between;margin:40px 0 8px;padding:0 6px;flex-wrap:wrap}
   .tl-item{flex:1;min-width:120px;text-align:center;position:relative;padding-top:26px}
   .tl-item::before{content:"";position:absolute;top:4px;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--glow)}
@@ -70,13 +40,11 @@
   .tl-item:last-child::after{display:none}
   .tl-date{font-size:12px;color:var(--accent);letter-spacing:.06em}
   .tl-label{font-size:12.5px;color:var(--muted);margin-top:3px}
-
-  /* 日记卡 */
   .diary{margin:40px 0;scroll-margin-top:24px}
   .d-head{display:flex;align-items:baseline;gap:14px;margin-bottom:0}
   .d-no{font-size:13px;color:var(--accent2);letter-spacing:.2em;font-weight:600;white-space:nowrap}
   .d-date{font-size:12.5px;color:var(--muted);letter-spacing:.04em;margin-left:auto}
-  .d-card{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:34px 36px 30px;backdrop-filter:blur(10px);box-shadow:0 24px 70px rgba(0,0,0,.4);position:relative;overflow:hidden}
+  .d-card{margin-top:14px;border-radius:18px;padding:34px 36px 30px;box-shadow:0 24px 70px rgba(0,0,0,.4);position:relative;overflow:hidden}
   .d-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
   .d-title{font-size:23px;font-weight:700;color:#fff;margin-bottom:22px;letter-spacing:.02em;line-height:1.4}
   .d-body{font-size:16.5px;color:#dfe6f3;line-height:2.0;letter-spacing:.01em}
@@ -87,14 +55,10 @@
   .tags a{color:var(--accent);text-decoration:none}
   .src{margin-top:10px;font-size:12px;color:var(--muted)}
   .src a{color:var(--accent2);text-decoration:none;border-bottom:1px dotted var(--accent2)}
-
   .divider{display:flex;align-items:center;gap:14px;margin:10px 0;color:var(--muted);font-size:12px;letter-spacing:.3em}
   .divider::before,.divider::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
-
-  footer{padding:60px 0 90px;text-align:center;color:var(--muted);font-size:13px;line-height:2}
-  footer .tip{color:var(--accent2);font-size:13.5px;margin-bottom:10px}
-  footer a{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent)}
-
+  footer{padding:60px 0 90px;font-size:13px}
+  footer .tip{font-size:13.5px;margin-bottom:10px}
   @media (max-width:640px){
     .d-card{padding:26px 22px}
     .d-title{font-size:19px}
@@ -340,57 +304,7 @@
   </footer>
 
 </div>
-<style>
-.back-to-top{
-  position:fixed; right:20px; bottom:22px; width:42px; height:42px;
-  border:1px solid rgba(127,180,232,0.22); border-radius:13px;
-  background:rgba(18,22,38,0.72);
-  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
-  color:#aab7d0; cursor:pointer; display:flex; align-items:center; justify-content:center;
-  box-shadow:0 2px 10px rgba(0,0,0,.22);
-  opacity:0; visibility:hidden; transform:translateY(12px);
-  transition:opacity .26s ease, transform .26s ease, visibility .26s, color .2s, border-color .2s, background .2s;
-  z-index:60;
-}
-.back-to-top svg{ display:block; width:18px; height:18px; }
-.back-to-top.show{ opacity:.6; visibility:visible; transform:translateY(0); }
-.back-to-top.show:hover{ opacity:1; color:#7fb4e8; border-color:#7fb4e8; background:rgba(18,22,38,0.92); box-shadow:0 4px 16px rgba(0,0,0,.3); }
-.back-to-top:focus-visible{ opacity:1; outline:2px solid #7fb4e8; outline-offset:3px; }
-@media (prefers-reduced-motion: reduce){
-  .back-to-top{ transition:opacity .15s ease; transform:none; }
-  .back-to-top.show{ transform:none; }
-  .back-to-top.show:hover{ transform:none; }
-}
-</style>
-<script>
-/* ===== 回到顶部按钮：下滑显示，顶部隐藏 ===== */
-(function(){
-  var btn=document.createElement('button');
-  btn.className='back-to-top';
-  btn.setAttribute('aria-label','回到顶部');
-  btn.setAttribute('title','回到顶部');
-  btn.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4l-8 8h5v8h6v-8h5z"/></svg>';
-  document.body.appendChild(btn);
-
-  var TH=Math.max(300, Math.round(window.innerHeight*0.5));
-  var ticking=false;
-  function update(){
-    if(window.pageYOffset>TH){ btn.classList.add('show'); }
-    else{ btn.classList.remove('show'); }
-    ticking=false;
-  }
-  window.addEventListener('scroll', function(){
-    if(!ticking){ ticking=true; window.requestAnimationFrame(update); }
-  }, {passive:true});
-  window.addEventListener('resize', function(){ TH=Math.max(300, Math.round(window.innerHeight*0.5)); update(); }, {passive:true});
-  update();
-
-  btn.addEventListener('click', function(){
-    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    window.scrollTo({top:0, behavior: reduce?'auto':'smooth'});
-  });
-})();
-</script>
+<script src="back-to-top.js"></script>
 
 </body>
 </html>
