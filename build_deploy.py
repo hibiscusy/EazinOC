@@ -8,7 +8,7 @@
 """
 import os, shutil
 
-SRC = r"D:\WorkBuddy\1\2026-07-30-11-42-14"
+SRC = r"os.path.dirname(os.path.abspath(__file__))"
 DST = os.path.join(SRC, "dist")
 HOMEPAGE = "OC宇宙-人物时间线-蒲熠星.html"
 

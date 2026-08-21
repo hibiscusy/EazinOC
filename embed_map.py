@@ -1,8 +1,9 @@
+import os
 """Embed relationship-map SVG into index.html, above the 日常 section, with 'OC关系网' title."""
 
 import pathlib
 
-ROOT = pathlib.Path(r"D:\WorkBuddy\1\2026-07-30-11-42-14")
+ROOT = pathlib.Path(r"os.path.dirname(os.path.abspath(__file__))")
 
 # Read the relationship map SVG
 rm = ROOT / "relationship-map.html"

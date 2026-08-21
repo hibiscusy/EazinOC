@@ -1,3 +1,4 @@
+import os
 """Rebuild relationship-map.html per user's reference grid layout.
 
 Reference layout from screenshot:
@@ -14,7 +15,7 @@ Node grid coords (viewBox 0 0 720 680):
 
 import base64, math, pathlib, re
 
-ROOT = pathlib.Path(r"D:\WorkBuddy\1\2026-07-30-11-42-14")
+ROOT = pathlib.Path(r"os.path.dirname(os.path.abspath(__file__))")
 CROPS = ROOT / "crops"
 
 # ── Node definitions ──────────────────────────────────────────────

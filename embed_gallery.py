@@ -1,7 +1,7 @@
 """在所有story-*.html的角色模块(.story-hero)下方插入.photo-gallery相册展示区"""
 import os, re
 
-BASE = 'D:/WorkBuddy/1/2026-07-30-11-42-14'
+BASE = 'os.path.dirname(os.path.abspath(__file__))'
 
 # 角色相册配置：key=story文件前缀, value=(gallery页面名, 图片目录, 显示数量)
 GALLERIES = {

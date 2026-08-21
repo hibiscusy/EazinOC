@@ -23,8 +23,6 @@ uniform_src.py
 make_stars*.py
 _t*.webp
 nul
-
-# 一次性临时脚本（非站点文件）
 check_story_lines.py
 daily_break.py
 daily_roles_break.py
@@ -34,3 +32,21 @@ add_arrows.py
 cleanup_arrows.py
 build_rm.py
 _old_rm.html
+_fix_*.py
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.env
+venv/
+.venv/
+
+# Node
+node_modules/
+
+# 日志/临时文件
+*.log
+*.tmp
+*.bak

@@ -9,7 +9,7 @@
 import os, re, shutil, glob
 from PIL import Image
 
-ROOT = r"D:\WorkBuddy\1\2026-07-30-11-42-14"
+ROOT = r"os.path.dirname(os.path.abspath(__file__))"
 CROPS = os.path.join(ROOT, "crops")
 DIST = os.path.join(ROOT, "dist")
 

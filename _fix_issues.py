@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os, re
 
-ROOT = r'D:\WorkBuddy\1\2026-07-30-11-42-14'
+ROOT = r'os.path.dirname(os.path.abspath(__file__))'
 
 # ---------- 1) Issue 1: fix cb/jx root source ----------
 # cb: fix stale CSS version + wrong section id (line-jx -> line-cb)

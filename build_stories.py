@@ -1,7 +1,8 @@
+import os
 # -*- coding: utf-8 -*-
 import re, os
 
-ROOT = r"D:\WorkBuddy\1\2026-07-30-11-42-14"
+ROOT = r"os.path.dirname(os.path.abspath(__file__))"
 INDEX = "OC宇宙-人物时间线-蒲熠星.html"
 idx_path = os.path.join(ROOT, INDEX)
 

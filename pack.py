@@ -1,6 +1,7 @@
+import os
 import zipfile, os
 
-base = r"D:\WorkBuddy\1\2026-07-30-11-42-14"
+base = r"os.path.dirname(os.path.abspath(__file__))"
 out = os.path.join(base, "oc-universe-2026-07-31.zip")
 top = "oc-universe"  # 解压后的顶层文件夹名
 

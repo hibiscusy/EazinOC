@@ -9,7 +9,7 @@
 import os, re, glob
 from PIL import Image
 
-SRC = r"D:\WorkBuddy\1\2026-07-30-11-42-14"
+SRC = r"os.path.dirname(os.path.abspath(__file__))"
 CROPS = os.path.join(SRC, "crops")
 
 # 1) PNG -> WebP（保留 alpha 透明通道）
